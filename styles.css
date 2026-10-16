@@ -1,15 +1,15 @@
 :root {
-  --ivory: #fff8ec;
-  --sand: #fbeedb;
-  --ink: #3b2a25;
-  --ink-soft: #6e5a50;
-  --gold: #b0731a;
-  --gold-soft: #f6d58e;
-  --rose: #c96f52;
-  --night: #3b2a25;
-  --line: rgba(59, 42, 37, 0.12);
+  --ivory: #fff8ef;
+  --sand: #fbeee3;
+  --ink: #2d3047;
+  --ink-soft: #5f6178;
+  --gold: #bd6f1c;
+  --gold-soft: #f7c873;
+  --rose: #d8634f;
+  --night: #2d3047;
+  --line: rgba(45, 48, 71, 0.12);
   --lamp: rgba(255, 196, 102, 0.55);
-  --dawn: linear-gradient(170deg, #4b3c5e 0%, #7d5470 38%, #b46a5e 72%, #cf8a52 100%);
+  --dawn: linear-gradient(170deg, #5a6a9a 0%, #8b7fb0 35%, #e58a86 70%, #f4a35c 100%);
 
   --c-root: #b5473a;
   --c-sacral: #d9803a;
@@ -109,7 +109,7 @@ section { padding: 110px 0; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 248, 236, 0.88);
+  background: rgba(255, 248, 239, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
@@ -160,7 +160,7 @@ section { padding: 110px 0; }
   overflow: hidden;
   background:
     radial-gradient(circle at 74% 42%, var(--lamp) 0%, rgba(255, 214, 140, 0.18) 32%, transparent 58%),
-    linear-gradient(180deg, #fde9d9 0%, #fff3e2 45%, var(--ivory) 100%);
+    linear-gradient(180deg, #ebe6f4 0%, #fde6da 40%, #fff3e4 70%, var(--ivory) 100%);
 }
 
 .hero-grid {
@@ -201,10 +201,13 @@ section { padding: 110px 0; }
 
 /* Quote band */
 .band {
-  background: var(--dawn);
+  background:
+    linear-gradient(180deg, rgba(45, 48, 71, 0.5) 0%, rgba(45, 48, 71, 0.35) 50%, rgba(45, 48, 71, 0.55) 100%),
+    url("images/golden-clouds.jpg") center 40% / cover;
   color: var(--ivory);
   text-align: center;
-  padding: 100px 0;
+  padding: 150px 0;
+  text-shadow: 0 2px 18px rgba(45, 48, 71, 0.45);
   position: relative;
   overflow: hidden;
 }
@@ -396,8 +399,9 @@ section { padding: 110px 0; }
 /* Contact */
 .contact {
   background:
-    radial-gradient(ellipse at 50% 115%, rgba(255, 205, 120, 0.75) 0%, rgba(255, 180, 100, 0.25) 30%, transparent 60%),
-    linear-gradient(180deg, #4b3c5e 0%, #7d5470 45%, #b46a5e 100%);
+    linear-gradient(180deg, rgba(45, 48, 71, 0.82) 0%, rgba(45, 48, 71, 0.5) 55%, rgba(45, 48, 71, 0.25) 100%),
+    url("images/beach-sunrise.jpg") center 62% / cover;
+  padding: 140px 0 220px;
   color: var(--ivory);
   text-align: center;
 }
