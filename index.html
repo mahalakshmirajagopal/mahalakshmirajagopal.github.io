@@ -26,6 +26,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#sessions">Healing Sessions</a></li>
         <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#videos">Videos</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#contact" class="btn btn-primary">Book a session</a></li>
       </ul>
@@ -291,6 +292,74 @@
       </div>
     </section>
 
+    <!-- Videos -->
+    <section id="videos" class="videos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Watch &amp; Practise</span>
+          <h2>Videos from Mahalakshmi</h2>
+          <p class="lede">Short talks on chakras, auras and energy fields, and guided meditations you can follow at home.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video reveal">
+            <div class="video-frame">
+              <button type="button" data-id="pxthdYjj1wE" aria-label="Play video: Understanding the Chakras: Virtues, Blocks &amp; Meditation">
+                <img src="https://i.ytimg.com/vi/pxthdYjj1wE/hqdefault.jpg" alt="" loading="lazy">
+              </button>
+            </div>
+            <span class="tag">Learn</span>
+            <h3>Understanding the Chakras: Virtues, Blocks &amp; Meditation</h3>
+          </article>
+          <article class="video reveal">
+            <div class="video-frame">
+              <button type="button" data-id="Xol1JIcrkes" aria-label="Play video: Energy Fields and What They Mean">
+                <img src="https://i.ytimg.com/vi/Xol1JIcrkes/hqdefault.jpg" alt="" loading="lazy">
+              </button>
+            </div>
+            <span class="tag">Learn</span>
+            <h3>Energy Fields and What They Mean</h3>
+          </article>
+          <article class="video reveal">
+            <div class="video-frame">
+              <button type="button" data-id="efFOd4-I608" aria-label="Play video: Transform Your Energy: A Practical Guide to Aura Healing">
+                <img src="https://i.ytimg.com/vi/efFOd4-I608/hqdefault.jpg" alt="" loading="lazy">
+              </button>
+            </div>
+            <span class="tag">Learn</span>
+            <h3>Transform Your Energy: A Practical Guide to Aura Healing</h3>
+          </article>
+          <article class="video reveal">
+            <div class="video-frame">
+              <button type="button" data-id="k77dBtzLF3c" aria-label="Play video: Guided Chakra Healing Meditation">
+                <img src="https://i.ytimg.com/vi/k77dBtzLF3c/hqdefault.jpg" alt="" loading="lazy">
+              </button>
+            </div>
+            <span class="tag">Guided meditation · 18 min</span>
+            <h3>Guided Chakra Healing Meditation</h3>
+          </article>
+          <article class="video reveal">
+            <div class="video-frame">
+              <button type="button" data-id="-NS4rQQAgGo" aria-label="Play video: Guided Chakra Meditation to Balance All 7 Chakras">
+                <img src="https://i.ytimg.com/vi/-NS4rQQAgGo/hqdefault.jpg" alt="" loading="lazy">
+              </button>
+            </div>
+            <span class="tag">Guided meditation · 30 min</span>
+            <h3>Guided Chakra Meditation to Balance All 7 Chakras</h3>
+          </article>
+          <article class="video reveal">
+            <div class="video-frame">
+              <button type="button" data-id="KxaGClVcnpY" aria-label="Play video: What Is Spiritual Well-Being?">
+                <img src="https://i.ytimg.com/vi/KxaGClVcnpY/hqdefault.jpg" alt="" loading="lazy">
+              </button>
+            </div>
+            <span class="tag">Reflection</span>
+            <h3>What Is Spiritual Well-Being?</h3>
+          </article>
+        </div>
+        <p class="channel-link reveal"><a class="btn btn-ghost" href="https://www.youtube.com/@mahalakshmirajagopal431" target="_blank" rel="noopener">More on her YouTube channel</a></p>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="contact">
       <div class="wrap">
@@ -338,6 +407,17 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('.video-frame button').forEach(btn =>
+      btn.addEventListener('click', () => {
+        const f = document.createElement('iframe');
+        f.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?autoplay=1&rel=0`;
+        f.title = btn.getAttribute('aria-label').replace('Play video: ', '');
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        btn.replaceWith(f);
+      })
+    );
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
