@@ -202,8 +202,8 @@ section { padding: 110px 0; }
 /* Quote band */
 .band {
   background:
-    linear-gradient(180deg, rgba(45, 48, 71, 0.3) 0%, rgba(45, 48, 71, 0.22) 50%, rgba(45, 48, 71, 0.4) 100%),
-    url("images/sunset-sky.jpg") center 45% / cover;
+    linear-gradient(180deg, rgba(45, 48, 71, 0.42) 0%, rgba(45, 48, 71, 0.38) 50%, rgba(45, 48, 71, 0.3) 100%),
+    url("images/beach-sunrise.jpg") center 22% / cover;
   color: var(--ivory);
   text-align: center;
   padding: 150px 0;
@@ -650,6 +650,7 @@ footer a { color: var(--gold); text-underline-offset: 3px; }
   .cards { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; }
   .t-grid { columns: 1; }
+  .band { padding: 110px 0 150px; background-size: auto, auto 175%; background-position: center, 62% 12%; }
   .t-hero { padding: 100px 0 90px; }
   .card { padding: 30px 24px 26px; }
   .series { padding: 32px 22px; border-radius: 22px; }
