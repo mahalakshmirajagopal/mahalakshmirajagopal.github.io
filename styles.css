@@ -405,6 +405,10 @@ section { padding: 110px 0; }
 .workshop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .workshop-grid .card { background: var(--sand); }
 
+.meditation { border-top: 1px solid var(--line); }
+.meditation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.meditation-grid .card { background: var(--sand); }
+
 .note {
   margin-top: 40px;
   padding: 22px 28px;
@@ -652,7 +656,7 @@ footer a { color: var(--gold); text-underline-offset: 3px; }
   .section-head.with-photo { grid-template-columns: 1fr; gap: 36px; }
   .section-head.with-photo .photo { aspect-ratio: 16 / 9; }
   .pillars { grid-template-columns: repeat(2, 1fr); }
-  .workshop-grid { grid-template-columns: 1fr; }
+  .workshop-grid, .meditation-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
   .t-grid { columns: 2; }
   .home-testimonials .t-row { grid-template-columns: 1fr; max-width: 40rem; }
