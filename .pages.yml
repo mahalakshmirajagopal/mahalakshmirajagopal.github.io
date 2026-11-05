@@ -1,0 +1,178 @@
+# Pages CMS (app.pagescms.org) reads this file to show Mahalakshmi simple forms
+# for each part of the website. Saving a form updates the matching file in _data.
+media:
+  input: images
+  output: /images
+
+content:
+  - name: top
+    label: Top of the page and quote
+    type: file
+    path: _data/top.yml
+    fields:
+      - { name: title_line, label: Small line above the heading, type: string }
+      - { name: heading, label: Heading, type: string }
+      - { name: heading_highlight, label: Heading words in italics, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: quote, label: Quote on the sunrise photo, type: text }
+
+  - name: about
+    label: About
+    type: file
+    path: _data/about.yml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: paragraphs, label: Paragraphs, type: text, list: true }
+      - { name: photo, label: Photo, type: image }
+      - { name: photo_description, label: Photo description (for people who can't see it), type: string }
+      - name: facts
+        label: Highlights beside the photo
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+      - name: pillars
+        label: Body, Mind, Heart, Soul
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+
+  - name: sessions
+    label: Healing sessions
+    type: file
+    path: _data/sessions.yml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: photo, label: Photo, type: image }
+      - { name: photo_description, label: Photo description, type: string }
+      - name: sessions
+        label: Sessions
+        type: object
+        list: true
+        fields:
+          - { name: tag, label: Small label above the title, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: duration, label: Duration, type: string }
+          - { name: wide, label: Show as a wide card, type: boolean }
+      - name: steps
+        label: How a session works (three steps)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+
+  - name: workshops
+    label: Workshops
+    type: file
+    path: _data/workshops.yml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: photo, label: Photo, type: image }
+      - { name: photo_description, label: Photo description, type: string }
+      - name: series
+        label: Self Healing Series
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+          - name: modules
+            label: Modules
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: text, label: Description, type: text }
+      - name: workshops
+        label: Other workshops
+        type: object
+        list: true
+        fields:
+          - { name: tag, label: Small label above the title, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: duration, label: Duration, type: string }
+      - { name: note, label: Note under the workshops, type: text }
+
+  - name: meditation
+    label: Meditation
+    type: file
+    path: _data/meditation.yml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: offerings
+        label: Offerings
+        type: object
+        list: true
+        fields:
+          - { name: tag, label: Small label above the title, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: duration, label: Duration, type: string }
+
+  - name: videos
+    label: Videos
+    type: file
+    path: _data/videos.yml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: videos
+        label: Videos
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: label, label: Small label (e.g. Learn, Guided meditation · 18 min), type: string }
+          - { name: youtube, label: YouTube link, type: string }
+      - name: talks
+        label: Talks and webinars
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: label, label: Small label (e.g. Webinar · July 2021), type: string }
+          - { name: youtube, label: YouTube link, type: string }
+          - { name: other_link, label: Link if it's not on YouTube (e.g. Facebook), type: string }
+          - { name: note, label: Note under the title, type: string }
+
+  - name: testimonials
+    label: Testimonials
+    type: file
+    path: _data/testimonials.yml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: rating, label: Google rating, type: string }
+      - { name: review_count, label: Number of Google reviews, type: number }
+      - { name: google_link, label: Link to Google reviews, type: string }
+      - { name: photo, label: Photo, type: image }
+      - { name: photo_description, label: Photo description, type: string }
+      - name: reviews
+        label: Reviews
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: about, label: Session or workshop, type: string }
+          - { name: text, label: Review, type: text }
+          - { name: on_main_page, label: Also show on the main page, type: boolean }
+          - { name: featured, label: Show large at the top of the Testimonials page, type: boolean }
+
+  - name: site
+    label: Contact details and footer
+    type: file
+    path: _data/site.yml
+    fields:
+      - { name: whatsapp, label: WhatsApp number (country code first, digits only), type: string }
+      - { name: phone, label: Phone number as shown, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: counselling_site, label: Counselling website link, type: string }
+      - { name: youtube_channel, label: YouTube channel link, type: string }
+      - { name: disclaimer, label: Note at the bottom of the page, type: text }

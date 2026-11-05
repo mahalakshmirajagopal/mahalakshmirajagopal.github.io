@@ -1,2 +1,4 @@
 .DS_Store
 .wrangler/
+_site/
+.jekyll-cache/

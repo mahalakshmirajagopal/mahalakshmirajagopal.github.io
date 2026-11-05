@@ -1,41 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ebe6f4">
-  <title>Testimonials | Mahalakshmi Rajagopal, Energy Healing</title>
-  <meta name="description" content="What clients and workshop participants say about healing sessions and trainings with Mahalakshmi Rajagopal.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body id="top">
-
-  <header class="site-header">
-    <nav class="wrap nav" aria-label="Main">
-      <a href="index.html" class="brand">
-        <span class="brand-name">Mahalakshmi</span>
-        <span class="brand-sub">Energy Healing</span>
-      </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#sessions">Healing Sessions</a></li>
-        <li><a href="index.html#workshops">Workshops</a></li>
-        <li><a href="index.html#meditation">Meditation</a></li>
-        <li><a href="index.html#videos">Videos</a></li>
-        <li><a href="index.html#testimonials" aria-current="page">Testimonials</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="index.html#contact" class="btn btn-primary">Book a session</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
+---
+layout: default
+title: Testimonials | Mahalakshmi Rajagopal, Energy Healing
+description: What clients and workshop participants say about healing sessions and trainings with Mahalakshmi Rajagopal.
+---
+{%- assign t = site.data.testimonials -%}
 
     <section class="t-hero">
       <div class="wrap">
@@ -47,47 +15,26 @@
 
     <section class="t-section">
       <div class="wrap">
-        <div class="t-summary-row reveal"><a class="g-summary" href="https://share.google/ImmTO8YXJTsTIfpbw" target="_blank" rel="noopener"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg><strong>5.0</strong><span class="stars" aria-hidden="true">★★★★★</span><span>45 reviews on Google</span></a></div>
+        <div class="t-summary-row reveal">{% include google-summary.html %}</div>
+        {%- for r in t.reviews %}{% if r.featured %}
 
         <figure class="t-featured reveal">
           <div class="chakra-line" aria-hidden="true">
             <i style="background:var(--c-root)"></i><i style="background:var(--c-sacral)"></i><i style="background:var(--c-solar)"></i><i style="background:var(--c-heart)"></i><i style="background:var(--c-throat)"></i><i style="background:var(--c-brow)"></i><i style="background:var(--c-crown)"></i>
           </div>
-          <blockquote>“Mahalakshmi Ma’am is a thorough professional who’ll help you untangle your life layer by layer. If you choose to follow the path she lights up, guaranteed physical and emotional results will follow. It’s never easy to work on oneself, but she’ll hold your hand and guide you through the process. I have sought her help in Angel Card Reading, Healing &amp; Counseling, all of which has brought in remarkable changes to my life. I find contentment in knowing that Ma’am’ll always be there to offer her support no matter what happens. I highly recommend her services 🙏”</blockquote>
-          <figcaption><strong>M M</strong><span>Angel Card Reading &amp; Healing</span><span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span></figcaption>
+          <blockquote>“{{ r.text | escape }}”</blockquote>
+          <figcaption><strong>{{ r.name | escape }}</strong><span>{{ r.about | escape }}</span>{% include google-badge.html %}</figcaption>
         </figure>
+        {%- endif %}{% endfor %}
 
         <div class="t-grid">
+          {%- for r in t.reviews %}{% unless r.featured %}
           <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“Mahalakshmi’s distance healing sessions were highly effective for my parents and [for] my son. Her systematic rootcausing of the chakra affected and the subsequent healing helped my mother cope with joint pain much better and helped my son with respiratory issues”</blockquote>
-            <figcaption><strong>Shalini Eswaran</strong><span>Distance Healing</span></figcaption>
+            {% include google-badge.html %}
+            <blockquote>“{{ r.text | escape }}”</blockquote>
+            <figcaption><strong>{{ r.name | escape }}</strong><span>{{ r.about | escape }}</span></figcaption>
           </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“I attended the online Chakra healing workshop and it was the right blend of knowledge and practical skills. Skills that can be used easily in life for self healing and wellbeing. Thank you so much for the sharings! 🧡🙏”</blockquote>
-            <figcaption><strong>Rasi Sethia</strong><span>Online Chakra Healing Workshop</span></figcaption>
-          </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“I met Mahalakshmi ji for the first time about 10 years back. I have attended many workshops organized by her on a vast variety of subjects. She has provided me with some very effective tools to understand and address my limiting beliefs thus helping me heal and evolve. Her counseling sessions, healing practices and guided meditations are all very useful and comprehensive. I strongly recommend her.”</blockquote>
-            <figcaption><strong>Shipra Sachdeva</strong><span>Workshops &amp; Healing Practices</span></figcaption>
-          </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“I would like to thank Mahalakshmi ma’am for this wonderful session. A group of 9 members attended the Holistic Wellness training at the Amyga Foundation, and the session proved highly informative and enriching. It not only boosted our positivity but also provided meaningful stress relief, fostering a sense of calm and balance. The focus on mind–body harmony gave us clarity and renewed energy, while sharing the experience together fostered stronger team bonding. Ma’am patiently addressed every question and cleared all our doubts, which made the session even more impactful. Overall, the training left us feeling motivated, connected, and inspired for personal growth.”</blockquote>
-            <figcaption><strong>Purnima Karuppiah</strong><span>Holistic Wellness Training</span></figcaption>
-          </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“I felt the workshop I attended recently on Mindfulness was very enriching. I was looking for something like this. Mahalaxmi ma’am has a wonderful way of choosing beneficial topics and explaining everything in a wonderful manner along with simple activities. I am trying to apply whatever I could gather in this workshop in my daily life and I am truly grateful. I wish her lots of success in all her future endeavors. She is making a very noble contribution.”</blockquote>
-            <figcaption><strong>Garima Saxena</strong><span>Mindfulness Workshop</span></figcaption>
-          </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“I have recently attended a session on line with others on Mindfulness in everyday life . It was well conducted and well understood . Mrs Mahalaxmi Rajagopal is a practising psychologist and helps others in finding solutions to life problems and in moving on without causing hurt to oneself or the other . A good experience.”</blockquote>
-            <figcaption><strong>Baljinder Singh</strong><span>Mindfulness Session, Online</span></figcaption>
-          </figure>
+          {%- endunless %}{% endfor %}
         </div>
       </div>
     </section>
@@ -98,21 +45,8 @@
         <h2>Have you had a session or workshop with Mahalakshmi?</h2>
         <p class="lede">Your words could help someone take their first step towards healing. Leave a review on Google, or send her a few lines on WhatsApp.</p>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/919971130176?text=Hello%20Mahalakshmi%2C%20I%27d%20like%20to%20share%20my%20experience%20of%20healing%20with%20you." target="_blank" rel="noopener">Share on WhatsApp</a>
-          <a class="btn btn-ghost" href="https://share.google/ImmTO8YXJTsTIfpbw" target="_blank" rel="noopener">Write a Google review</a>
+          <a class="btn btn-gold" href="https://wa.me/{{ site.data.site.whatsapp | remove: '+' | remove: ' ' }}?text=Hello%20Mahalakshmi%2C%20I%27d%20like%20to%20share%20my%20experience%20of%20healing%20with%20you." target="_blank" rel="noopener">Share on WhatsApp</a>
+          <a class="btn btn-ghost" href="{{ t.google_link }}" target="_blank" rel="noopener">Write a Google review</a>
         </div>
       </div>
     </section>
-
-  </main>
-
-  <footer>
-    <div class="wrap footer-grid">
-      <p class="disclaimer">Energy healing supports, and does not replace, medical or psychiatric care. Please continue any treatment prescribed by your doctor.</p>
-      <p>© <span id="year">2026</span> Mahalakshmi Rajagopal · <a href="index.html">Home</a> · <a href="https://www.mahalakshmiwellness.com/" target="_blank" rel="noopener">Counselling practice</a></p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>

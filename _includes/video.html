@@ -1,0 +1,21 @@
+{%- assign v = include.video -%}
+<article class="video reveal">
+{%- if v.youtube and v.youtube != "" -%}
+  {%- assign id = v.youtube | split: "v=" | last | split: "&" | first | split: "?" | first | split: "/" | last -%}
+  <div class="video-frame">
+    <button type="button" data-id="{{ id }}" aria-label="Play video: {{ v.title | escape }}">
+      <img src="https://i.ytimg.com/vi/{{ id }}/hqdefault.jpg" alt="" loading="lazy">
+    </button>
+  </div>
+{%- else -%}
+  <a class="video-frame video-link" href="{{ v.other_link }}" target="_blank" rel="noopener" aria-label="{{ v.title | escape }} (opens in a new tab)">
+    <img src="{{ '/images/bay-headland-wide.jpg' | relative_url }}" alt="" loading="lazy">
+    <span>Watch {% if v.other_link contains "facebook" %}on Facebook{% else %}online{% endif %}</span>
+  </a>
+{%- endif %}
+  <span class="tag">{{ v.label | escape }}</span>
+  <h3>{{ v.title | escape }}</h3>
+  {%- if v.note and v.note != "" %}
+  <p class="video-note">{{ v.note | escape }}</p>
+  {%- endif %}
+</article>

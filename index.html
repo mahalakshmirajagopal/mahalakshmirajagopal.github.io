@@ -1,49 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ebe6f4">
-  <title>Mahalakshmi Rajagopal | Energy Healing</title>
-  <meta name="description" content="Aura reading, chakra healing, EFT, crystal and angel card consultations, and self-healing workshops with intuitive mind, body and soul wellness facilitator Mahalakshmi Rajagopal.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body id="top">
-
-  <header class="site-header">
-    <nav class="wrap nav" aria-label="Main">
-      <a href="#top" class="brand">
-        <span class="brand-name">Mahalakshmi</span>
-        <span class="brand-sub">Energy Healing</span>
-      </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#sessions">Healing Sessions</a></li>
-        <li><a href="#workshops">Workshops</a></li>
-        <li><a href="#meditation">Meditation</a></li>
-        <li><a href="#videos">Videos</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="btn btn-primary">Book a session</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
+---
+layout: default
+title: Mahalakshmi Rajagopal | Energy Healing
+description: Aura reading, chakra healing, EFT, crystal and angel card consultations, and self-healing workshops with intuitive mind, body and soul wellness facilitator Mahalakshmi Rajagopal.
+---
+{%- assign d = site.data -%}
+{%- assign colours = "root,solar,heart,crown,sacral,throat,brow" | split: "," -%}
+{%- assign numerals = "I,II,III,IV,V,VI,VII,VIII,IX,X" | split: "," -%}
 
     <!-- Hero -->
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <span class="eyebrow">Mind · Body · Soul Wellness Facilitator</span>
-          <h1>Awaken your <em>inner light</em></h1>
-          <p class="lede">Healing that brings harmony back into every sphere of body, mind and emotions, through the healing techniques best suited to you and intuitive guidance for the energy system, mind and body.</p>
+          <span class="eyebrow">{{ d.top.title_line | escape }}</span>
+          <h1>{{ d.top.heading | escape }} <em>{{ d.top.heading_highlight | escape }}</em></h1>
+          <p class="lede">{{ d.top.intro | escape }}</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Book a healing session</a>
             <a href="#workshops" class="btn btn-ghost">Explore workshops</a>
@@ -89,7 +59,7 @@
           <i style="background:var(--c-root)"></i><i style="background:var(--c-sacral)"></i><i style="background:var(--c-solar)"></i><i style="background:var(--c-heart)"></i><i style="background:var(--c-throat)"></i><i style="background:var(--c-brow)"></i><i style="background:var(--c-crown)"></i>
         </div>
         <blockquote class="reveal">
-          “Every individual possesses an infinite capacity for healing and transformation.”
+          “{{ d.top.quote | escape }}”
           <cite>Mahalakshmi Rajagopal</cite>
         </blockquote>
       </div>
@@ -101,46 +71,31 @@
         <div class="about-grid">
           <div class="about-text reveal">
             <span class="eyebrow">About Mahalakshmi</span>
-            <h2>Awakening Inner Wisdom, Nurturing Wholeness</h2>
-            <p>Mahalakshmi Rajagopal is an intuitive Energy Healer, holistic wellness professional and spiritual guide who helps people restore harmony across body, mind, emotions and soul.</p>
-            <p>Drawing on over two decades in mental health, counselling and holistic healing, she brings ancient energy wisdom together with intuitive guidance. She believes that physical discomfort, emotional distress and recurring life challenges often arise from energetic imbalances, unresolved emotions, subconscious patterns and a disconnection from one’s authentic self.</p>
-            <p>Through chakra balancing, aura reading, intuitive energy scanning, angel card guidance and divine healing practices, she gently helps people find their energetic blockages and restore the natural flow of life force energy. Each session is a sacred space where healing unfolds through awareness, compassion and the body’s own innate intelligence.</p>
-            <p>Her guidance helps people release limiting beliefs, heal emotional wounds, awaken inner clarity, strengthen their intuition and align with their soul’s purpose.</p>
-            <p class="crosslink">Looking for counselling or therapy? Visit Mahalakshmi’s counselling practice at <a href="https://www.mahalakshmiwellness.com/" target="_blank" rel="noopener">mahalakshmiwellness.com</a>.</p>
+            <h2>{{ d.about.heading | escape }}</h2>
+            {%- for p in d.about.paragraphs %}
+            <p>{{ p | escape }}</p>
+            {%- endfor %}
+            <p class="crosslink">Looking for counselling or therapy? Visit Mahalakshmi’s counselling practice at <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">mahalakshmiwellness.com</a>.</p>
           </div>
 
           <div class="about-side">
-          <figure class="photo reveal"><img src="images/bay-dawn-branch.jpg" alt="A calm bay at dawn, framed by the branches of a tree" loading="lazy"></figure>
+          <figure class="photo reveal"><img src="{{ d.about.photo | relative_url }}" alt="{{ d.about.photo_description | escape }}" loading="lazy"></figure>
           <ul class="facts reveal">
-            <li><strong>20+ years</strong><span>in mental health and holistic wellbeing</span></li>
-            <li><strong>Mind–soul connection</strong><span>Every healing works on both the psychological and the physiological layers of the energy field</span></li>
-            <li><strong>Pranic Healing roots</strong><span>Grounded in the system taught by Master Choa Kok Sui</span></li>
-            <li><strong>In person &amp; online</strong><span>Individual sessions and transformational workshops</span></li>
+            {%- for f in d.about.facts %}
+            <li><strong>{{ f.title | escape }}</strong><span>{{ f.text | escape }}</span></li>
+            {%- endfor %}
           </ul>
           </div>
         </div>
 
         <div class="pillars reveal">
+          {%- for p in d.about.pillars %}
           <div class="pillar">
-            <div class="dot" style="background:var(--c-root)"></div>
-            <h3>Body</h3>
-            <p>Your body is a temple. Learn to sense it, listen to it and support its own capacity to heal.</p>
+            <div class="dot" style="background:var(--c-{{ colours[forloop.index0] | default: 'heart' }})"></div>
+            <h3>{{ p.title | escape }}</h3>
+            <p>{{ p.text | escape }}</p>
           </div>
-          <div class="pillar">
-            <div class="dot" style="background:var(--c-solar)"></div>
-            <h3>Mind</h3>
-            <p>Release limiting beliefs and subconscious patterns that keep old challenges returning.</p>
-          </div>
-          <div class="pillar">
-            <div class="dot" style="background:var(--c-heart)"></div>
-            <h3>Heart</h3>
-            <p>Heal emotional wounds and build lasting resilience, inner peace and freedom.</p>
-          </div>
-          <div class="pillar">
-            <div class="dot" style="background:var(--c-crown)"></div>
-            <h3>Soul</h3>
-            <p>Awaken higher consciousness and align with your soul’s purpose and the flow of divine energy.</p>
-          </div>
+          {%- endfor %}
         </div>
       </div>
     </section>
@@ -151,76 +106,30 @@
         <div class="section-head with-photo reveal">
           <div>
             <span class="eyebrow">Healing Sessions</span>
-            <h2>One-to-one healing</h2>
-            <p class="lede">Each session follows inner guidance and is shaped around what you need. Fees are offered as an energy exchange, per session.</p>
+            <h2>{{ d.sessions.heading | escape }}</h2>
+            <p class="lede">{{ d.sessions.intro | escape }}</p>
           </div>
-          <figure class="photo"><img src="images/golden-dawn-sea.jpg" alt="Golden light at dawn over a still sea" loading="lazy"></figure>
+          <figure class="photo"><img src="{{ d.sessions.photo | relative_url }}" alt="{{ d.sessions.photo_description | escape }}" loading="lazy"></figure>
         </div>
 
         <div class="cards">
-          <article class="card wide reveal">
-            <span class="tag">Physical &amp; emotional ailments</span>
-            <h3>Aura Reading &amp; Chakra Healing</h3>
-            <p>Based on the principles of Pranic Healing. Mahalakshmi reads your aura, then heals both the psychological and physiological parts of your energy field. If she notices a concern you haven’t mentioned, she works on that too, for a deeper and more lasting effect. Pencil crystals are often used as tools.</p>
-            <div class="card-meta"><span>30–45 min</span><span class="fee">₹1,500</span></div>
+          {%- for s in d.sessions.sessions %}
+          <article class="card{% if s.wide %} wide{% endif %} reveal">
+            <span class="tag">{{ s.tag | escape }}</span>
+            <h3>{{ s.title | escape }}</h3>
+            <p>{{ s.text | escape }}</p>
+            {% include card-meta.html item=s %}
           </article>
-
-          <article class="card reveal">
-            <span class="tag">Insight</span>
-            <h3>General Aura Reading</h3>
-            <p>A reading of your energy field to understand the state of your aura and chakras, and where energy may be blocked or depleted.</p>
-            <div class="card-meta"><span>20–30 min</span><span class="fee">₹1,000</span></div>
-          </article>
-
-          <article class="card reveal">
-            <span class="tag">Childhood wounds</span>
-            <h3>Healing Childhood Trauma &amp; Distress</h3>
-            <p>Depending on your receptivity, Mahalakshmi may use an integrated approach, drawing on different healing modalities to meet your particular healing need.</p>
-            <div class="card-meta"><span>Per session</span><span class="fee">₹2,000</span></div>
-          </article>
-
-          <article class="card reveal">
-            <span class="tag">Emotional freedom</span>
-            <h3>EFT Intervention</h3>
-            <p>Emotional Freedom Technique, developed by Gary Craig, is very effective for emotional challenges. For best results, a continuous three-hour session is recommended to work through an issue fully.</p>
-            <div class="card-meta"><span>3 hours recommended</span><span class="fee">₹3,000</span></div>
-          </article>
-
-          <article class="card reveal">
-            <span class="tag">Guidance</span>
-            <h3>Angel Card Reading &amp; Consultation</h3>
-            <p>Using the cards designed by Doreen Virtue, Mahalakshmi acts as a medium and offers guidance on the questions you bring. Length depends on your questions and the conversation that follows.</p>
-            <div class="card-meta"><span>Up to 1½ hours</span><span class="fee">₹3,000</span></div>
-          </article>
-
-          <article class="card reveal">
-            <span class="tag">Harmony &amp; wellbeing</span>
-            <h3>Crystal Consultation</h3>
-            <p>Crystals are supports and tools. Each has its own properties that can help strengthen health, relationships, career and more. Receive guidance on which crystals to use and how.</p>
-            <div class="card-meta"><span>Crystals charged separately</span><span class="fee">₹5,000</span></div>
-          </article>
-
-          <article class="card wide reveal">
-            <span class="tag">Spaces</span>
-            <h3>Energy Assessment of Homes &amp; Offices</h3>
-            <p>An assessment of how energy flows through your home or workplace, with remedies to improve and enhance it. This is best done with Mahalakshmi visiting the space in person.</p>
-            <div class="card-meta"><span>On-site visit</span><span class="fee">₹5,000</span></div>
-          </article>
+          {%- endfor %}
         </div>
 
         <div class="process">
+          {%- for s in d.sessions.steps %}
           <div class="step reveal">
-            <h4>Share what you are carrying</h4>
-            <p>Begin by talking about the physical, emotional or life concern that has brought you here.</p>
+            <h4>{{ s.title | escape }}</h4>
+            <p>{{ s.text | escape }}</p>
           </div>
-          <div class="step reveal">
-            <h4>Your aura is read</h4>
-            <p>Mahalakshmi scans your energy field and chakras to sense blockages, including ones you may not have noticed yet.</p>
-          </div>
-          <div class="step reveal">
-            <h4>Healing unfolds</h4>
-            <p>Guided from within, she cleanses and energises your field, working on both mind and body for deeper, lasting change.</p>
-          </div>
+          {%- endfor %}
         </div>
       </div>
     </section>
@@ -231,75 +140,43 @@
         <div class="section-head with-photo reveal">
           <div>
             <span class="eyebrow">Workshops &amp; Trainings</span>
-            <h2>Learn to heal yourself</h2>
-            <p class="lede">Experience energy beyond intellectual understanding. Through practical exercises, meditation, body awareness and experiential learning, you learn to sense your chakras, understand your energy field and build practices that support lasting wellbeing.</p>
+            <h2>{{ d.workshops.heading | escape }}</h2>
+            <p class="lede">{{ d.workshops.intro | escape }}</p>
           </div>
-          <figure class="photo"><img src="images/clear-water-headland.jpg" alt="Clear, shallow water over rippled sand beside a green headland" loading="lazy"></figure>
+          <figure class="photo"><img src="{{ d.workshops.photo | relative_url }}" alt="{{ d.workshops.photo_description | escape }}" loading="lazy"></figure>
         </div>
 
         <div class="series reveal">
           <div class="series-intro">
             <span class="eyebrow">Signature programme</span>
-            <h3>Self Healing Series</h3>
-            <p>Four modules focused on healing yourself. Each module is a full day, or two half days.</p>
-            <div class="fee-line">₹9,500<small>for the complete series</small></div>
+            <h3>{{ d.workshops.series.title | escape }}</h3>
+            <p>{{ d.workshops.series.text | escape }}</p>
           </div>
           <ol class="modules">
+            {%- for m in d.workshops.series.modules %}
             <li>
-              <span class="num">I</span>
+              <span class="num">{{ numerals[forloop.index0] }}</span>
               <div>
-                <h4>Healing Your Body</h4>
-                <p>Your body is a temple. A step-by-step, experiential workshop to connect with your body through the senses and feel its subtle space. With practice, a close, sacred relationship with your body slowly unfolds.</p>
+                <h4>{{ m.title | escape }}</h4>
+                <p>{{ m.text | escape }}</p>
               </div>
             </li>
-            <li>
-              <span class="num">II</span>
-              <div>
-                <h4>EFT Techniques for Healing</h4>
-                <p>Learn the principles of EFT and how to use it on yourself. Guided practice sessions help you apply it to both physical and emotional concerns.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num">III</span>
-              <div>
-                <h4>Aura and Chakras</h4>
-                <p>Discover the chakras, their properties and their link with the physical body. Learn to sense the aura and the state of each chakra, and how to cleanse and energise them.</p>
-              </div>
-            </li>
-            <li>
-              <span class="num">IV</span>
-              <div>
-                <h4>Crystals</h4>
-                <p>Crystals are tools, companions and guides. Learn to choose the right crystal, cleanse and programme it, and use it well.</p>
-              </div>
-            </li>
+            {%- endfor %}
           </ol>
         </div>
 
         <div class="workshop-grid">
+          {%- for w in d.workshops.workshops %}
           <article class="card reveal">
-            <span class="tag">5½ days · Levels 1 to 3</span>
-            <h3>Energy Healing Training</h3>
-            <p>Intense, experiential training to heal yourself and practise healing others, face to face and through distant healing. Each level builds on the last, moving from simple techniques for physical ailments to complex techniques for psychological ones. Based on the courses founded by Master Choa Kok Sui, with content, delivery and guidelines created by Mahalakshmi.</p>
-            <div class="card-meta"><span>Levels 1–3</span><span class="fee">₹15,000</span></div>
+            <span class="tag">{{ w.tag | escape }}</span>
+            <h3>{{ w.title | escape }}</h3>
+            <p>{{ w.text | escape }}</p>
+            {% include card-meta.html item=w %}
           </article>
-
-          <article class="card reveal">
-            <span class="tag">One day</span>
-            <h3>Your Body, A Temple</h3>
-            <p>Connect deeply with your own body, and learn to heal it by sensing what your body is communicating to you.</p>
-            <div class="card-meta"><span>Full day</span><span class="fee">₹3,000</span></div>
-          </article>
-
-          <article class="card reveal">
-            <span class="tag">One day</span>
-            <h3>EFT Workshop</h3>
-            <p>Learn to free yourself of a range of emotional blocks and ailments using Emotional Freedom Technique.</p>
-            <div class="card-meta"><span>Full day</span><span class="fee">₹3,000</span></div>
-          </article>
+          {%- endfor %}
         </div>
 
-        <p class="note reveal">In-person trainings are the most powerful way to learn, but online trainings are also offered if you cannot attend in person. Mahalakshmi also designs customised workshops on request, including workshops on the energy field and chakras for groups and organisations.</p>
+        <p class="note reveal">{{ d.workshops.note | escape }}</p>
       </div>
     </section>
 
@@ -308,24 +185,19 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Meditation &amp; Inner Wisdom</span>
-          <h2>A beautiful inner journey</h2>
-          <p class="lede">Mahalakshmi has been guiding individuals in meditation for the last two decades. Her meditations are easy to learn and to practise on your own.</p>
+          <h2>{{ d.meditation.heading | escape }}</h2>
+          <p class="lede">{{ d.meditation.intro | escape }}</p>
         </div>
 
         <div class="meditation-grid">
+          {%- for m in d.meditation.offerings %}
           <article class="card reveal">
-            <span class="tag">Guided meditation</span>
-            <h3>Meditation</h3>
-            <p>Mahalakshmi offers customised meditations, and teaches Chakra Meditations and Healing Guidance Meditations. Her guided meditations enable participants to experience a beautiful inner journey.</p>
-            <div class="card-meta"><span>Online &amp; offline</span><span class="fee">Pay as you please</span></div>
+            <span class="tag">{{ m.tag | escape }}</span>
+            <h3>{{ m.title | escape }}</h3>
+            <p>{{ m.text | escape }}</p>
+            {% include card-meta.html item=m %}
           </article>
-
-          <article class="card reveal">
-            <span class="tag">One-to-one</span>
-            <h3>Inner Wisdom Facilitation Sessions</h3>
-            <p>Deep insights on topics like karma, women and the practices that bind them, social conditioning as a block to spiritual progress, and many more. Guidance seekers are welcome to bring their own questions. Each session also includes short meditation or reflective practices.</p>
-            <div class="card-meta"><span>1 hour per session</span></div>
-          </article>
+          {%- endfor %}
         </div>
       </div>
     </section>
@@ -335,97 +207,24 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Watch &amp; Practise</span>
-          <h2>Videos from Mahalakshmi</h2>
-          <p class="lede">Short talks on chakras, auras and energy fields, guided meditations you can follow at home, and recordings of her webinars.</p>
+          <h2>{{ d.videos.heading | escape }}</h2>
+          <p class="lede">{{ d.videos.intro | escape }}</p>
         </div>
         <div class="video-grid">
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="pxthdYjj1wE" aria-label="Play video: Understanding the Chakras: Virtues, Blocks &amp; Meditation">
-                <img src="https://i.ytimg.com/vi/pxthdYjj1wE/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Learn</span>
-            <h3>Understanding the Chakras: Virtues, Blocks &amp; Meditation</h3>
-          </article>
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="Xol1JIcrkes" aria-label="Play video: Energy Fields and What They Mean">
-                <img src="https://i.ytimg.com/vi/Xol1JIcrkes/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Learn</span>
-            <h3>Energy Fields and What They Mean</h3>
-          </article>
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="efFOd4-I608" aria-label="Play video: Transform Your Energy: A Practical Guide to Aura Healing">
-                <img src="https://i.ytimg.com/vi/efFOd4-I608/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Learn</span>
-            <h3>Transform Your Energy: A Practical Guide to Aura Healing</h3>
-          </article>
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="k77dBtzLF3c" aria-label="Play video: Guided Chakra Healing Meditation">
-                <img src="https://i.ytimg.com/vi/k77dBtzLF3c/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Guided meditation · 18 min</span>
-            <h3>Guided Chakra Healing Meditation</h3>
-          </article>
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="-NS4rQQAgGo" aria-label="Play video: Guided Chakra Meditation to Balance All 7 Chakras">
-                <img src="https://i.ytimg.com/vi/-NS4rQQAgGo/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Guided meditation · 30 min</span>
-            <h3>Guided Chakra Meditation to Balance All 7 Chakras</h3>
-          </article>
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="KxaGClVcnpY" aria-label="Play video: What Is Spiritual Well-Being?">
-                <img src="https://i.ytimg.com/vi/KxaGClVcnpY/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Reflection</span>
-            <h3>What Is Spiritual Well-Being?</h3>
-          </article>
+          {%- for v in d.videos.videos %}
+          {% include video.html video=v %}
+          {%- endfor %}
         </div>
 
+        {%- if d.videos.talks.size > 0 %}
         <h3 class="sub-head reveal">Talks &amp; webinars</h3>
         <div class="video-grid">
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="6iWONOx6ML8" aria-label="Play video: Aura Webinar">
-                <img src="https://i.ytimg.com/vi/6iWONOx6ML8/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Webinar · July 2021</span>
-            <h3>Aura Webinar</h3>
-          </article>
-          <article class="video reveal">
-            <div class="video-frame">
-              <button type="button" data-id="PtKbDyw5_jM" aria-label="Play video: Meditation as a Tool for Self Growth">
-                <img src="https://i.ytimg.com/vi/PtKbDyw5_jM/hqdefault.jpg" alt="" loading="lazy">
-              </button>
-            </div>
-            <span class="tag">Webinar · August 2021</span>
-            <h3>Meditation as a Tool for Self Growth</h3>
-          </article>
-          <article class="video reveal">
-            <a class="video-frame video-link" href="https://www.facebook.com/people/Indian-Association-of-Mental-Health-and-Wellbeing/100064154440262/" target="_blank" rel="noopener" aria-label="Webinar on Aura, on Facebook (opens in a new tab)">
-              <img src="images/bay-headland-wide.jpg" alt="" loading="lazy">
-              <span>Watch on Facebook</span>
-            </a>
-            <span class="tag">Webinar · June 2020</span>
-            <h3>Webinar on Aura</h3>
-            <p class="video-note">With the Indian Association of Mental Health and Wellbeing</p>
-          </article>
+          {%- for v in d.videos.talks %}
+          {% include video.html video=v %}
+          {%- endfor %}
         </div>
-        <p class="channel-link reveal"><a class="btn btn-ghost" href="https://www.youtube.com/@mahalakshmirajagopal431" target="_blank" rel="noopener">More on her YouTube channel</a></p>
+        {%- endif %}
+        <p class="channel-link reveal"><a class="btn btn-ghost" href="{{ d.site.youtube_channel }}" target="_blank" rel="noopener">More on her YouTube channel</a></p>
       </div>
     </section>
 
@@ -435,27 +234,19 @@
         <div class="section-head with-photo reveal">
           <div>
             <span class="eyebrow">Testimonials</span>
-            <h2>Kind words from those she has walked with</h2>
-            <div class="t-summary-row"><a class="g-summary" href="https://share.google/ImmTO8YXJTsTIfpbw" target="_blank" rel="noopener"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg><strong>5.0</strong><span class="stars" aria-hidden="true">★★★★★</span><span>45 reviews on Google</span></a></div>
+            <h2>{{ d.testimonials.heading | escape }}</h2>
+            <div class="t-summary-row">{% include google-summary.html %}</div>
           </div>
-          <figure class="photo"><img src="images/green-point-calm.jpg" alt="Calm, clear water beside a green point with a small white hut" loading="lazy"></figure>
+          <figure class="photo"><img src="{{ d.testimonials.photo | relative_url }}" alt="{{ d.testimonials.photo_description | escape }}" loading="lazy"></figure>
         </div>
         <div class="t-row">
+          {%- for r in d.testimonials.reviews %}{% if r.on_main_page %}
           <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“Mahalakshmi’s distance healing sessions were highly effective for my parents and [for] my son. Her systematic rootcausing of the chakra affected and the subsequent healing helped my mother cope with joint pain much better and helped my son with respiratory issues”</blockquote>
-            <figcaption><strong>Shalini Eswaran</strong><span>Distance Healing</span></figcaption>
+            {% include google-badge.html %}
+            <blockquote>“{{ r.text | escape }}”</blockquote>
+            <figcaption><strong>{{ r.name | escape }}</strong><span>{{ r.about | escape }}</span></figcaption>
           </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“I attended the online Chakra healing workshop and it was the right blend of knowledge and practical skills. Skills that can be used easily in life for self healing and wellbeing. Thank you so much for the sharings! 🧡🙏”</blockquote>
-            <figcaption><strong>Rasi Sethia</strong><span>Online Chakra Healing Workshop</span></figcaption>
-          </figure>
-          <figure class="t-card reveal">
-            <span class="g-badge"><svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>Google review <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span>
-            <blockquote>“Mahalakshmi Ma’am is a thorough professional who’ll help you untangle your life layer by layer. If you choose to follow the path she lights up, guaranteed physical and emotional results will follow. It’s never easy to work on oneself, but she’ll hold your hand and guide you through the process. I have sought her help in Angel Card Reading, Healing &amp; Counseling, all of which has brought in remarkable changes to my life. I find contentment in knowing that Ma’am’ll always be there to offer her support no matter what happens. I highly recommend her services 🙏”</blockquote>
-            <figcaption><strong>M M</strong><span>Angel Card Reading &amp; Healing</span></figcaption>
-          </figure>
+          {%- endif %}{% endfor %}
         </div>
         <p class="channel-link reveal"><a class="btn btn-ghost" href="testimonials.html">Read more testimonials</a></p>
       </div>
@@ -468,25 +259,12 @@
         <h2>Book a session or workshop</h2>
         <p class="lede">Reach out to ask a question, book a healing session, or join an upcoming workshop.</p>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/919971130176?text=Hello%20Mahalakshmi%2C%20I%27d%20like%20to%20know%20more%20about%20a%20healing%20session." target="_blank" rel="noopener">Message on WhatsApp</a>
-          <a class="btn btn-ghost" href="mailto:mahalakshmi.rajagopal70@gmail.com?subject=Healing%20session%20enquiry">Send an email</a>
+          <a class="btn btn-gold" href="https://wa.me/{{ d.site.whatsapp | remove: '+' | remove: ' ' }}?text=Hello%20Mahalakshmi%2C%20I%27d%20like%20to%20know%20more%20about%20a%20healing%20session." target="_blank" rel="noopener">Message on WhatsApp</a>
+          <a class="btn btn-ghost" href="mailto:{{ d.site.email }}?subject=Healing%20session%20enquiry">Send an email</a>
         </div>
         <div class="contact-details">
-          <a href="tel:+919971130176">+91 99711 30176</a>
-          <a href="mailto:mahalakshmi.rajagopal70@gmail.com">mahalakshmi.rajagopal70@gmail.com</a>
+          <a href="tel:{{ d.site.phone | remove: ' ' }}">{{ d.site.phone }}</a>
+          <a href="mailto:{{ d.site.email }}">{{ d.site.email }}</a>
         </div>
       </div>
     </section>
-
-  </main>
-
-  <footer>
-    <div class="wrap footer-grid">
-      <p class="disclaimer">Energy healing supports, and does not replace, medical or psychiatric care. Please continue any treatment prescribed by your doctor.</p>
-      <p>© <span id="year">2026</span> Mahalakshmi Rajagopal · <a href="testimonials.html">Testimonials</a> · <a href="https://www.mahalakshmiwellness.com/" target="_blank" rel="noopener">Counselling practice</a></p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>

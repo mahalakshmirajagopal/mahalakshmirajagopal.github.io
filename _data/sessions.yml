@@ -1,0 +1,47 @@
+heading: One-to-one healing
+intro: Each session follows inner guidance and is shaped around what you need.
+photo: /images/golden-dawn-sea.jpg
+photo_description: Golden light at dawn over a still sea
+sessions:
+  - tag: Physical & emotional ailments
+    title: Aura Reading & Chakra Healing
+    text: Based on the principles of Pranic Healing. Mahalakshmi reads your aura, then heals both the psychological and physiological parts of your energy field. If she notices a concern you haven’t mentioned, she works on that too, for a deeper and more lasting effect. Pencil crystals are often used as tools.
+    duration: 30–45 min
+    wide: true
+  - tag: Insight
+    title: General Aura Reading
+    text: A reading of your energy field to understand the state of your aura and chakras, and where energy may be blocked or depleted.
+    duration: 20–30 min
+    wide: false
+  - tag: Childhood wounds
+    title: Healing Childhood Trauma & Distress
+    text: Depending on your receptivity, Mahalakshmi may use an integrated approach, drawing on different healing modalities to meet your particular healing need.
+    duration: Per session
+    wide: false
+  - tag: Emotional freedom
+    title: EFT Intervention
+    text: Emotional Freedom Technique, developed by Gary Craig, is very effective for emotional challenges. For best results, a continuous three-hour session is recommended to work through an issue fully.
+    duration: 3 hours recommended
+    wide: false
+  - tag: Guidance
+    title: Angel Card Reading & Consultation
+    text: Using the cards designed by Doreen Virtue, Mahalakshmi acts as a medium and offers guidance on the questions you bring. Length depends on your questions and the conversation that follows.
+    duration: Up to 1½ hours
+    wide: false
+  - tag: Harmony & wellbeing
+    title: Crystal Consultation
+    text: Crystals are supports and tools. Each has its own properties that can help strengthen health, relationships, career and more. Receive guidance on which crystals to use and how.
+    duration: Crystals charged separately
+    wide: false
+  - tag: Spaces
+    title: Energy Assessment of Homes & Offices
+    text: An assessment of how energy flows through your home or workplace, with remedies to improve and enhance it. This is best done with Mahalakshmi visiting the space in person.
+    duration: On-site visit
+    wide: true
+steps:
+  - title: Share what you are carrying
+    text: Begin by talking about the physical, emotional or life concern that has brought you here.
+  - title: Your aura is read
+    text: Mahalakshmi scans your energy field and chakras to sense blockages, including ones you may not have noticed yet.
+  - title: Healing unfolds
+    text: Guided from within, she cleanses and energises your field, working on both mind and body for deeper, lasting change.

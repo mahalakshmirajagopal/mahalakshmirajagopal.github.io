@@ -1,0 +1,7 @@
+# GitHub Pages builds this site with Jekyll. The words, prices, photos and videos
+# live in the _data folder, which Mahalakshmi edits through Pages CMS (see .pages.yml).
+title: Mahalakshmi Rajagopal | Energy Healing
+exclude:
+  - .wrangler
+  - .pages.yml
+  - README.md
