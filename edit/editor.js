@@ -352,7 +352,8 @@
     var box = el('div', { class: 'list' });
     var open = {};
     function title(item, i) {
-      var first = f.fields.filter(function (x) { return x.type === 'string' || x.type === 'text'; })[0];
+      var named = f.fields.filter(function (x) { return x.name === 'title' || x.name === 'name'; })[0];
+      var first = named || f.fields.filter(function (x) { return x.type === 'string' || x.type === 'text'; })[0];
       var t = first && item[first.name];
       return t ? String(t) : 'Item ' + (i + 1);
     }
@@ -637,6 +638,7 @@
       device = b.dataset.device;
       Array.prototype.forEach.call(document.querySelectorAll('#device-switch button'), function (x) { x.classList.toggle('on', x === b); });
       fitPreview();
+      setPage(previewPage, previewPage === 'index.html' && current ? ANCHORS[nameOf(current)] || '' : 'top');
     });
   });
   Array.prototype.forEach.call(document.querySelectorAll('.mobile-tabs button'), function (b) {
