@@ -1,0 +1,29 @@
+{%- comment -%} Fonts and colours from _data/theme.yml. A custom colour left empty falls back to the chosen ready-made theme. {%- endcomment -%}
+{%- assign th = site.data.theme -%}
+{%- assign p = site.data.themes[th.colour_theme] | default: site.data.themes.Dawn -%}
+{%- assign c = th.colours -%}
+{%- assign hf = site.data.fonts[th.heading_font] | default: site.data.fonts["Cormorant Garamond"] -%}
+{%- assign bf = site.data.fonts[th.body_font] | default: site.data.fonts.Jost -%}
+{%- assign hname = th.heading_font | default: "Cormorant Garamond" -%}
+{%- assign bname = th.body_font | default: "Jost" -%}
+{%- case th.text_size -%}{%- when "Smaller" -%}{%- assign size = "0.98rem" -%}{%- when "Larger" -%}{%- assign size = "1.15rem" -%}{%- when "Largest" -%}{%- assign size = "1.25rem" -%}{%- else -%}{%- assign size = "1.05rem" -%}{%- endcase -%}
+  <link href="https://fonts.googleapis.com/css2?family={{ hf.spec }}{% if bname != hname %}&family={{ bf.spec }}{% endif %}&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --ivory: {{ c.background | default: p.background }};
+      --sand: {{ c.background_soft | default: p.background_soft }};
+      --ink: {{ c.text | default: p.text }};
+      --ink-soft: {{ c.text_soft | default: p.text_soft }};
+      --gold: {{ c.accent | default: p.accent }};
+      --gold-soft: {{ c.accent_light | default: p.accent_light }};
+      --rose: {{ c.highlight | default: p.highlight }};
+      --night: {{ c.dark | default: p.dark }};
+      --hero-top: {{ c.hero_top | default: p.hero_top }};
+      --hero-middle: {{ c.hero_middle | default: p.hero_middle }};
+      --hero-bottom: {{ c.hero_bottom | default: p.hero_bottom }};
+      --serif: "{{ hname }}", {{ hf.fallback }};
+      --sans: "{{ bname }}", {{ bf.fallback }};
+      --text-size: {{ size }};
+    }
+  </style>

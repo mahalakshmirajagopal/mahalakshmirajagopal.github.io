@@ -1,0 +1,16 @@
+colour_theme: Dawn
+heading_font: Cormorant Garamond
+body_font: Jost
+text_size: Normal
+colours:
+  background: ""
+  background_soft: ""
+  text: ""
+  text_soft: ""
+  accent: ""
+  accent_light: ""
+  highlight: ""
+  dark: ""
+  hero_top: ""
+  hero_middle: ""
+  hero_bottom: ""

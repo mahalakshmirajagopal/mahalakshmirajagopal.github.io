@@ -5,6 +5,63 @@ media:
   output: /images
 
 content:
+  - name: theme
+    label: Look and feel (colours, fonts, text size)
+    type: file
+    path: _data/theme.yml
+    fields:
+      - name: colour_theme
+        label: Colour theme
+        description: A ready-made set of colours for the whole site.
+        type: select
+        options: { values: [Dawn, Forest, Ocean, Lotus, Lavender] }
+      - name: heading_font
+        label: Font for headings
+        type: select
+        options: { values: [Cormorant Garamond, Cormorant, Playfair Display, Lora, EB Garamond, Libre Baskerville, DM Serif Display, Marcellus, Cinzel, Jost, Lato, Raleway, Montserrat, Poppins, Open Sans, Mulish, Nunito, Work Sans, Quicksand] }
+      - name: body_font
+        label: Font for everything else
+        type: select
+        options: { values: [Jost, Lato, Raleway, Montserrat, Poppins, Open Sans, Mulish, Nunito, Work Sans, Quicksand, Cormorant Garamond, Lora, EB Garamond, Libre Baskerville] }
+      - name: text_size
+        label: Text size
+        type: select
+        options: { values: [Smaller, Normal, Larger, Largest] }
+      - name: colours
+        label: Your own colours (optional)
+        description: Leave a box empty to use the colour from the theme above. Colours are written like #2d3047; you can pick one at htmlcolorcodes.com and copy its code.
+        type: object
+        fields:
+          - { name: background, label: Page background, type: string }
+          - { name: background_soft, label: Soft background (behind cards and some sections), type: string }
+          - { name: text, label: Main text and headings, type: string }
+          - { name: text_soft, label: Softer text, type: string }
+          - { name: accent, label: Accent (small labels, links), type: string }
+          - { name: accent_light, label: Light accent (on dark sections, buttons), type: string }
+          - { name: highlight, label: Highlight, type: string }
+          - { name: dark, label: Dark sections and buttons, type: string }
+          - { name: hero_top, label: Top of the page, sky colour 1, type: string }
+          - { name: hero_middle, label: Top of the page, sky colour 2, type: string }
+          - { name: hero_bottom, label: Top of the page, sky colour 3, type: string }
+
+  - name: site
+    label: Name, contact details and footer
+    type: file
+    path: _data/site.yml
+    fields:
+      - { name: name, label: Name at the top left, type: string }
+      - { name: tagline, label: Small line under the name, type: string }
+      - { name: full_name, label: Full name (quote and footer), type: string }
+      - { name: book_button, label: Button at the top right, type: string }
+      - { name: page_title, label: Title in the browser tab and on Google, type: string }
+      - { name: page_description, label: Description shown on Google, type: text }
+      - { name: whatsapp, label: WhatsApp number (country code first, digits only), type: string }
+      - { name: phone, label: Phone number as shown, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: counselling_site, label: Counselling website link, type: string }
+      - { name: youtube_channel, label: YouTube channel link, type: string }
+      - { name: disclaimer, label: Note at the bottom of the page, type: text }
+
   - name: top
     label: Top of the page and quote
     type: file
@@ -14,6 +71,9 @@ content:
       - { name: heading, label: Heading, type: string }
       - { name: heading_highlight, label: Heading words in italics, type: string }
       - { name: intro, label: Introduction, type: text }
+      - { name: button_main, label: First button, type: string }
+      - { name: button_second, label: Second button, type: string }
+      - { name: show_quote, label: Show the quote on the sunrise photo, type: boolean }
       - { name: quote, label: Quote on the sunrise photo, type: text }
 
   - name: about
@@ -21,8 +81,13 @@ content:
     type: file
     path: _data/about.yml
     fields:
+      - { name: show, label: Show this section, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
       - { name: heading, label: Heading, type: string }
       - { name: paragraphs, label: Paragraphs, type: text, list: true }
+      - { name: counselling_text, label: Line about the counselling practice (leave empty to hide), type: string }
+      - { name: counselling_link_text, label: Counselling link words, type: string }
       - { name: photo, label: Photo, type: image }
       - { name: photo_description, label: Photo description (for people who can't see it), type: string }
       - name: facts
@@ -45,6 +110,9 @@ content:
     type: file
     path: _data/sessions.yml
     fields:
+      - { name: show, label: Show this section, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
       - { name: heading, label: Heading, type: string }
       - { name: intro, label: Introduction, type: text }
       - { name: photo, label: Photo, type: image }
@@ -57,10 +125,10 @@ content:
           - { name: tag, label: Small label above the title, type: string }
           - { name: title, label: Title, type: string }
           - { name: text, label: Description, type: text }
-          - { name: duration, label: Duration, type: string }
+          - { name: duration, label: Duration (leave empty to hide), type: string }
           - { name: wide, label: Show as a wide card, type: boolean }
       - name: steps
-        label: How a session works (three steps)
+        label: How a session works
         type: object
         list: true
         fields:
@@ -72,6 +140,9 @@ content:
     type: file
     path: _data/workshops.yml
     fields:
+      - { name: show, label: Show this section, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
       - { name: heading, label: Heading, type: string }
       - { name: intro, label: Introduction, type: text }
       - { name: photo, label: Photo, type: image }
@@ -80,6 +151,7 @@ content:
         label: Self Healing Series
         type: object
         fields:
+          - { name: label, label: Small label above the title, type: string }
           - { name: title, label: Title, type: string }
           - { name: text, label: Description, type: text }
           - name: modules
@@ -97,7 +169,7 @@ content:
           - { name: tag, label: Small label above the title, type: string }
           - { name: title, label: Title, type: string }
           - { name: text, label: Description, type: text }
-          - { name: duration, label: Duration, type: string }
+          - { name: duration, label: Duration (leave empty to hide), type: string }
       - { name: note, label: Note under the workshops, type: text }
 
   - name: meditation
@@ -105,6 +177,9 @@ content:
     type: file
     path: _data/meditation.yml
     fields:
+      - { name: show, label: Show this section, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
       - { name: heading, label: Heading, type: string }
       - { name: intro, label: Introduction, type: text }
       - name: offerings
@@ -115,13 +190,16 @@ content:
           - { name: tag, label: Small label above the title, type: string }
           - { name: title, label: Title, type: string }
           - { name: text, label: Description, type: text }
-          - { name: duration, label: Duration, type: string }
+          - { name: duration, label: Duration (leave empty to hide), type: string }
 
   - name: videos
     label: Videos
     type: file
     path: _data/videos.yml
     fields:
+      - { name: show, label: Show this section, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
       - { name: heading, label: Heading, type: string }
       - { name: intro, label: Introduction, type: text }
       - name: videos
@@ -132,6 +210,7 @@ content:
           - { name: title, label: Title, type: string }
           - { name: label, label: Small label (e.g. Learn, Guided meditation · 18 min), type: string }
           - { name: youtube, label: YouTube link, type: string }
+      - { name: talks_heading, label: Heading above the talks, type: string }
       - name: talks
         label: Talks and webinars
         type: object
@@ -142,13 +221,18 @@ content:
           - { name: youtube, label: YouTube link, type: string }
           - { name: other_link, label: Link if it's not on YouTube (e.g. Facebook), type: string }
           - { name: note, label: Note under the title, type: string }
+      - { name: channel_button, label: YouTube channel button, type: string }
 
   - name: testimonials
     label: Testimonials
     type: file
     path: _data/testimonials.yml
     fields:
-      - { name: heading, label: Heading, type: string }
+      - { name: show, label: Show this section and page in the menu, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
+      - { name: heading, label: Heading on the main page, type: string }
+      - { name: more_button, label: Button to the Testimonials page, type: string }
       - { name: rating, label: Google rating, type: string }
       - { name: review_count, label: Number of Google reviews, type: number }
       - { name: google_link, label: Link to Google reviews, type: string }
@@ -164,15 +248,27 @@ content:
           - { name: text, label: Review, type: text }
           - { name: on_main_page, label: Also show on the main page, type: boolean }
           - { name: featured, label: Show large at the top of the Testimonials page, type: boolean }
+      - { name: page_heading, label: Testimonials page heading, type: string }
+      - { name: page_heading_highlight, label: Testimonials page heading, words in italics, type: string }
+      - { name: page_intro, label: Testimonials page introduction, type: text }
+      - { name: share_label, label: Sharing section, small label, type: string }
+      - { name: share_heading, label: Sharing section, heading, type: string }
+      - { name: share_text, label: Sharing section, text, type: text }
+      - { name: share_whatsapp_button, label: Sharing section, WhatsApp button, type: string }
+      - { name: share_whatsapp_message, label: Sharing section, WhatsApp message, type: text }
+      - { name: share_google_button, label: Sharing section, Google button, type: string }
 
-  - name: site
-    label: Contact details and footer
+  - name: contact
+    label: Contact section
     type: file
-    path: _data/site.yml
+    path: _data/contact.yml
     fields:
-      - { name: whatsapp, label: WhatsApp number (country code first, digits only), type: string }
-      - { name: phone, label: Phone number as shown, type: string }
-      - { name: email, label: Email, type: string }
-      - { name: counselling_site, label: Counselling website link, type: string }
-      - { name: youtube_channel, label: YouTube channel link, type: string }
-      - { name: disclaimer, label: Note at the bottom of the page, type: text }
+      - { name: show, label: Show this section, type: boolean }
+      - { name: menu, label: Name in the menu, type: string }
+      - { name: label, label: Small label above the heading, type: string }
+      - { name: heading, label: Heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: whatsapp_button, label: WhatsApp button, type: string }
+      - { name: whatsapp_message, label: Message that opens in WhatsApp, type: text }
+      - { name: email_button, label: Email button, type: string }
+      - { name: email_subject, label: Email subject, type: string }

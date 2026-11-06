@@ -1,37 +1,44 @@
 {%- if page.url == "/" or page.url == "/index.html" -%}{%- assign home = "" -%}{%- else -%}{%- assign home = "index.html" -%}{%- endif -%}
+{%- assign d = site.data -%}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ebe6f4">
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}">
+  <meta name="theme-color" content="{{ d.theme.colours.hero_top | default: d.themes[d.theme.colour_theme].hero_top | default: '#ebe6f4' }}">
+  <title>{{ page.title | default: d.site.page_title | escape }}</title>
+  <meta name="description" content="{{ page.description | default: d.site.page_description | escape }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+{% include theme.html %}
 </head>
 <body id="top">
 
   <header class="site-header">
     <nav class="wrap nav" aria-label="Main">
       <a href="{% if home == "" %}#top{% else %}index.html{% endif %}" class="brand">
-        <span class="brand-name">Mahalakshmi</span>
-        <span class="brand-sub">Energy Healing</span>
+        <span class="brand-name">{{ d.site.name | escape }}</span>
+        <span class="brand-sub">{{ d.site.tagline | escape }}</span>
       </a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="{{ home }}#about">About</a></li>
-        <li><a href="{{ home }}#sessions">Healing Sessions</a></li>
-        <li><a href="{{ home }}#workshops">Workshops</a></li>
-        <li><a href="{{ home }}#meditation">Meditation</a></li>
-        <li><a href="{{ home }}#videos">Videos</a></li>
-        <li><a href="{{ home }}#testimonials"{% if home != "" %} aria-current="page"{% endif %}>Testimonials</a></li>
-        <li><a href="{{ home }}#contact">Contact</a></li>
-        <li><a href="{{ home }}#contact" class="btn btn-primary">Book a session</a></li>
+        {%- if d.about.show %}
+        <li><a href="{{ home }}#about">{{ d.about.menu | escape }}</a></li>{% endif %}
+        {%- if d.sessions.show %}
+        <li><a href="{{ home }}#sessions">{{ d.sessions.menu | escape }}</a></li>{% endif %}
+        {%- if d.workshops.show %}
+        <li><a href="{{ home }}#workshops">{{ d.workshops.menu | escape }}</a></li>{% endif %}
+        {%- if d.meditation.show %}
+        <li><a href="{{ home }}#meditation">{{ d.meditation.menu | escape }}</a></li>{% endif %}
+        {%- if d.videos.show %}
+        <li><a href="{{ home }}#videos">{{ d.videos.menu | escape }}</a></li>{% endif %}
+        {%- if d.testimonials.show %}
+        <li><a href="{{ home }}#testimonials"{% if home != "" %} aria-current="page"{% endif %}>{{ d.testimonials.menu | escape }}</a></li>{% endif %}
+        {%- if d.contact.show %}
+        <li><a href="{{ home }}#contact">{{ d.contact.menu | escape }}</a></li>
+        <li><a href="{{ home }}#contact" class="btn btn-primary">{{ d.site.book_button | escape }}</a></li>{% endif %}
       </ul>
     </nav>
   </header>
@@ -42,8 +49,8 @@
 
   <footer>
     <div class="wrap footer-grid">
-      <p class="disclaimer">{{ site.data.site.disclaimer | escape }}</p>
-      <p>© <span id="year">2026</span> Mahalakshmi Rajagopal · {% if home == "" %}<a href="testimonials.html">Testimonials</a>{% else %}<a href="index.html">Home</a>{% endif %} · <a href="{{ site.data.site.counselling_site }}" target="_blank" rel="noopener">Counselling practice</a></p>
+      <p class="disclaimer">{{ d.site.disclaimer | escape }}</p>
+      <p>© <span id="year">2026</span> {{ d.site.full_name | escape }}{% if home == "" %}{% if d.testimonials.show %} · <a href="testimonials.html">{{ d.testimonials.menu | escape }}</a>{% endif %}{% else %} · <a href="index.html">Home</a>{% endif %}{% if d.site.counselling_site and d.site.counselling_site != "" %} · <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">Counselling practice</a>{% endif %}</p>
     </div>
   </footer>
 

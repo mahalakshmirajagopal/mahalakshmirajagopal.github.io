@@ -1,0 +1,6 @@
+# Ready-made colour themes offered in the editor's "Look and feel" form. Not edited by Mahalakshmi.
+Dawn:     { background: "#fff8ef", background_soft: "#fbeee3", text: "#2d3047", text_soft: "#5f6178", accent: "#bd6f1c", accent_light: "#f7c873", highlight: "#d8634f", dark: "#2d3047", hero_top: "#ebe6f4", hero_middle: "#fde6da", hero_bottom: "#fff3e4" }
+Forest:   { background: "#f7f8f1", background_soft: "#eaf0e2", text: "#23332b", text_soft: "#55665c", accent: "#5f7f3a", accent_light: "#d6c77a", highlight: "#b86b4b", dark: "#23332b", hero_top: "#e3ecdc", hero_middle: "#f1eedc", hero_bottom: "#f7f6ec" }
+Ocean:    { background: "#f6fafb", background_soft: "#e5f0f3", text: "#1f3a4a", text_soft: "#566d7a", accent: "#2f7f95", accent_light: "#f2c879", highlight: "#e07a5f", dark: "#1f3a4a", hero_top: "#dcebf2", hero_middle: "#eaf3f1", hero_bottom: "#f3f8f7" }
+Lotus:    { background: "#fff7f7", background_soft: "#fbe9ec", text: "#3d2a3a", text_soft: "#6e5868", accent: "#b4547a", accent_light: "#f5c6a5", highlight: "#d8634f", dark: "#3d2a3a", hero_top: "#f4e4f0", hero_middle: "#fde5e3", hero_bottom: "#fff1ee" }
+Lavender: { background: "#faf8fd", background_soft: "#efeaf7", text: "#2f2a4a", text_soft: "#625c7c", accent: "#7a5aa6", accent_light: "#e8c97a", highlight: "#c56c86", dark: "#2f2a4a", hero_top: "#e9e3f5", hero_middle: "#f3e6f0", hero_bottom: "#f8f1f6" }

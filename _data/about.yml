@@ -1,3 +1,6 @@
+show: true
+menu: About
+label: About Mahalakshmi
 heading: Awakening Inner Wisdom, Nurturing Wholeness
 paragraphs:
   - Mahalakshmi Rajagopal is an intuitive Energy Healer, holistic wellness professional and spiritual guide who helps people restore harmony across body, mind, emotions and soul.
@@ -24,3 +27,5 @@ pillars:
     text: Heal emotional wounds and build lasting resilience, inner peace and freedom.
   - title: Soul
     text: Awaken higher consciousness and align with your soul’s purpose and the flow of divine energy.
+counselling_text: Looking for counselling or therapy? Visit Mahalakshmi’s counselling practice at
+counselling_link_text: mahalakshmiwellness.com

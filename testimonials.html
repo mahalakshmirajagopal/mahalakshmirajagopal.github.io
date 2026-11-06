@@ -7,9 +7,9 @@ description: What clients and workshop participants say about healing sessions a
 
     <section class="t-hero">
       <div class="wrap">
-        <span class="eyebrow">Testimonials</span>
-        <h1>Kind words from<br><em>those she has walked with</em></h1>
-        <p class="lede">Reviews shared on Google by clients of her healing sessions and participants in her workshops.</p>
+        <span class="eyebrow">{{ t.label | escape }}</span>
+        <h1>{{ t.page_heading | escape }}<br><em>{{ t.page_heading_highlight | escape }}</em></h1>
+        <p class="lede">{{ t.page_intro | escape }}</p>
       </div>
     </section>
 
@@ -41,12 +41,12 @@ description: What clients and workshop participants say about healing sessions a
 
     <section class="t-share">
       <div class="wrap">
-        <span class="eyebrow" style="color:var(--gold-soft)">Share your experience</span>
-        <h2>Have you had a session or workshop with Mahalakshmi?</h2>
-        <p class="lede">Your words could help someone take their first step towards healing. Leave a review on Google, or send her a few lines on WhatsApp.</p>
+        <span class="eyebrow" style="color:var(--gold-soft)">{{ t.share_label | escape }}</span>
+        <h2>{{ t.share_heading | escape }}</h2>
+        <p class="lede">{{ t.share_text | escape }}</p>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/{{ site.data.site.whatsapp | remove: '+' | remove: ' ' }}?text=Hello%20Mahalakshmi%2C%20I%27d%20like%20to%20share%20my%20experience%20of%20healing%20with%20you." target="_blank" rel="noopener">Share on WhatsApp</a>
-          <a class="btn btn-ghost" href="{{ t.google_link }}" target="_blank" rel="noopener">Write a Google review</a>
+          <a class="btn btn-gold" href="https://wa.me/{{ site.data.site.whatsapp | remove: '+' | remove: ' ' }}?text={{ t.share_whatsapp_message | url_encode | replace: '+', '%20' }}" target="_blank" rel="noopener">{{ t.share_whatsapp_button | escape }}</a>
+          <a class="btn btn-ghost" href="{{ t.google_link }}" target="_blank" rel="noopener">{{ t.share_google_button | escape }}</a>
         </div>
       </div>
     </section>

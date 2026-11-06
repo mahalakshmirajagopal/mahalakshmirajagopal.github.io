@@ -1,8 +1,12 @@
+show: true
+menu: Workshops
+label: Workshops & Trainings
 heading: Learn to heal yourself
 intro: Experience energy beyond intellectual understanding. Through practical exercises, meditation, body awareness and experiential learning, you learn to sense your chakras, understand your energy field and build practices that support lasting wellbeing.
 photo: /images/clear-water-headland.jpg
 photo_description: Clear, shallow water over rippled sand beside a green headland
 series:
+  label: Signature programme
   title: Self Healing Series
   text: Four modules focused on healing yourself. Each module is a full day, or two half days.
   modules:

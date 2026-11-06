@@ -1,7 +1,5 @@
 ---
 layout: default
-title: Mahalakshmi Rajagopal | Energy Healing
-description: Aura reading, chakra healing, EFT, crystal and angel card consultations, and self-healing workshops with intuitive mind, body and soul wellness facilitator Mahalakshmi Rajagopal.
 ---
 {%- assign d = site.data -%}
 {%- assign colours = "root,solar,heart,crown,sacral,throat,brow" | split: "," -%}
@@ -15,8 +13,8 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
           <h1>{{ d.top.heading | escape }} <em>{{ d.top.heading_highlight | escape }}</em></h1>
           <p class="lede">{{ d.top.intro | escape }}</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Book a healing session</a>
-            <a href="#workshops" class="btn btn-ghost">Explore workshops</a>
+            <a href="#contact" class="btn btn-primary">{{ d.top.button_main | escape }}</a>
+            <a href="#workshops" class="btn btn-ghost">{{ d.top.button_second | escape }}</a>
           </div>
         </div>
 
@@ -53,6 +51,7 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
     </section>
 
     <!-- Belief -->
+    {%- if d.top.show_quote %}
     <div class="band">
       <div class="wrap">
         <div class="chakra-line" aria-hidden="true">
@@ -60,22 +59,26 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
         </div>
         <blockquote class="reveal">
           “{{ d.top.quote | escape }}”
-          <cite>Mahalakshmi Rajagopal</cite>
+          <cite>{{ d.site.full_name | escape }}</cite>
         </blockquote>
       </div>
     </div>
+    {%- endif %}
 
     <!-- About -->
+    {%- if d.about.show %}
     <section id="about">
       <div class="wrap">
         <div class="about-grid">
           <div class="about-text reveal">
-            <span class="eyebrow">About Mahalakshmi</span>
+            <span class="eyebrow">{{ d.about.label | escape }}</span>
             <h2>{{ d.about.heading | escape }}</h2>
             {%- for p in d.about.paragraphs %}
             <p>{{ p | escape }}</p>
             {%- endfor %}
-            <p class="crosslink">Looking for counselling or therapy? Visit Mahalakshmi’s counselling practice at <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">mahalakshmiwellness.com</a>.</p>
+            {%- if d.about.counselling_text and d.about.counselling_text != "" %}
+            <p class="crosslink">{{ d.about.counselling_text | escape }} <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">{{ d.about.counselling_link_text | escape }}</a>.</p>
+            {%- endif %}
           </div>
 
           <div class="about-side">
@@ -100,12 +103,15 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
       </div>
     </section>
 
+    {%- endif %}
+
     <!-- Sessions -->
+    {%- if d.sessions.show %}
     <section id="sessions" class="sessions">
       <div class="wrap">
         <div class="section-head with-photo reveal">
           <div>
-            <span class="eyebrow">Healing Sessions</span>
+            <span class="eyebrow">{{ d.sessions.label | escape }}</span>
             <h2>{{ d.sessions.heading | escape }}</h2>
             <p class="lede">{{ d.sessions.intro | escape }}</p>
           </div>
@@ -134,12 +140,15 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
       </div>
     </section>
 
+    {%- endif %}
+
     <!-- Workshops -->
+    {%- if d.workshops.show %}
     <section id="workshops">
       <div class="wrap">
         <div class="section-head with-photo reveal">
           <div>
-            <span class="eyebrow">Workshops &amp; Trainings</span>
+            <span class="eyebrow">{{ d.workshops.label | escape }}</span>
             <h2>{{ d.workshops.heading | escape }}</h2>
             <p class="lede">{{ d.workshops.intro | escape }}</p>
           </div>
@@ -148,7 +157,7 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
 
         <div class="series reveal">
           <div class="series-intro">
-            <span class="eyebrow">Signature programme</span>
+            <span class="eyebrow">{{ d.workshops.series.label | escape }}</span>
             <h3>{{ d.workshops.series.title | escape }}</h3>
             <p>{{ d.workshops.series.text | escape }}</p>
           </div>
@@ -180,11 +189,14 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
       </div>
     </section>
 
+    {%- endif %}
+
     <!-- Meditation -->
+    {%- if d.meditation.show %}
     <section id="meditation" class="meditation">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Meditation &amp; Inner Wisdom</span>
+          <span class="eyebrow">{{ d.meditation.label | escape }}</span>
           <h2>{{ d.meditation.heading | escape }}</h2>
           <p class="lede">{{ d.meditation.intro | escape }}</p>
         </div>
@@ -202,11 +214,14 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
       </div>
     </section>
 
+    {%- endif %}
+
     <!-- Videos -->
+    {%- if d.videos.show %}
     <section id="videos" class="videos">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Watch &amp; Practise</span>
+          <span class="eyebrow">{{ d.videos.label | escape }}</span>
           <h2>{{ d.videos.heading | escape }}</h2>
           <p class="lede">{{ d.videos.intro | escape }}</p>
         </div>
@@ -217,23 +232,26 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
         </div>
 
         {%- if d.videos.talks.size > 0 %}
-        <h3 class="sub-head reveal">Talks &amp; webinars</h3>
+        <h3 class="sub-head reveal">{{ d.videos.talks_heading | escape }}</h3>
         <div class="video-grid">
           {%- for v in d.videos.talks %}
           {% include video.html video=v %}
           {%- endfor %}
         </div>
         {%- endif %}
-        <p class="channel-link reveal"><a class="btn btn-ghost" href="{{ d.site.youtube_channel }}" target="_blank" rel="noopener">More on her YouTube channel</a></p>
+        <p class="channel-link reveal"><a class="btn btn-ghost" href="{{ d.site.youtube_channel }}" target="_blank" rel="noopener">{{ d.videos.channel_button | escape }}</a></p>
       </div>
     </section>
 
+    {%- endif %}
+
     <!-- Testimonials -->
+    {%- if d.testimonials.show %}
     <section id="testimonials" class="home-testimonials">
       <div class="wrap">
         <div class="section-head with-photo reveal">
           <div>
-            <span class="eyebrow">Testimonials</span>
+            <span class="eyebrow">{{ d.testimonials.label | escape }}</span>
             <h2>{{ d.testimonials.heading | escape }}</h2>
             <div class="t-summary-row">{% include google-summary.html %}</div>
           </div>
@@ -248,19 +266,22 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
           </figure>
           {%- endif %}{% endfor %}
         </div>
-        <p class="channel-link reveal"><a class="btn btn-ghost" href="testimonials.html">Read more testimonials</a></p>
+        <p class="channel-link reveal"><a class="btn btn-ghost" href="testimonials.html">{{ d.testimonials.more_button | escape }}</a></p>
       </div>
     </section>
 
+    {%- endif %}
+
     <!-- Contact -->
+    {%- if d.contact.show %}
     <section id="contact" class="contact">
       <div class="wrap">
-        <span class="eyebrow" style="color:var(--gold-soft)">Begin your healing</span>
-        <h2>Book a session or workshop</h2>
-        <p class="lede">Reach out to ask a question, book a healing session, or join an upcoming workshop.</p>
+        <span class="eyebrow" style="color:var(--gold-soft)">{{ d.contact.label | escape }}</span>
+        <h2>{{ d.contact.heading | escape }}</h2>
+        <p class="lede">{{ d.contact.intro | escape }}</p>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/{{ d.site.whatsapp | remove: '+' | remove: ' ' }}?text=Hello%20Mahalakshmi%2C%20I%27d%20like%20to%20know%20more%20about%20a%20healing%20session." target="_blank" rel="noopener">Message on WhatsApp</a>
-          <a class="btn btn-ghost" href="mailto:{{ d.site.email }}?subject=Healing%20session%20enquiry">Send an email</a>
+          <a class="btn btn-gold" href="https://wa.me/{{ d.site.whatsapp | remove: '+' | remove: ' ' }}?text={{ d.contact.whatsapp_message | url_encode | replace: '+', '%20' }}" target="_blank" rel="noopener">{{ d.contact.whatsapp_button | escape }}</a>
+          <a class="btn btn-ghost" href="mailto:{{ d.site.email }}?subject={{ d.contact.email_subject | url_encode | replace: '+', '%20' }}">{{ d.contact.email_button | escape }}</a>
         </div>
         <div class="contact-details">
           <a href="tel:{{ d.site.phone | remove: ' ' }}">{{ d.site.phone }}</a>
@@ -268,3 +289,4 @@ description: Aura reading, chakra healing, EFT, crystal and angel card consultat
         </div>
       </div>
     </section>
+    {%- endif %}

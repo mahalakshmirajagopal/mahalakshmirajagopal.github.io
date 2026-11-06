@@ -1,3 +1,16 @@
+show: true
+menu: Testimonials
+label: Testimonials
+more_button: Read more testimonials
+page_heading: Kind words from
+page_heading_highlight: those she has walked with
+page_intro: Reviews shared on Google by clients of her healing sessions and participants in her workshops.
+share_label: Share your experience
+share_heading: Have you had a session or workshop with Mahalakshmi?
+share_text: Your words could help someone take their first step towards healing. Leave a review on Google, or send her a few lines on WhatsApp.
+share_whatsapp_button: Share on WhatsApp
+share_whatsapp_message: Hello Mahalakshmi, I'd like to share my experience of healing with you.
+share_google_button: Write a Google review
 heading: Kind words from those she has walked with
 rating: "5.0"
 review_count: 45

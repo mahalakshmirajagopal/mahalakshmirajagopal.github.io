@@ -1,0 +1,20 @@
+# Google Fonts offered in the editor, with the request each needs. Not edited by Mahalakshmi.
+Cormorant Garamond: { spec: "Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400", fallback: "Georgia, serif" }
+Cormorant:          { spec: "Cormorant:ital,wght@0,400;0,500;0,600;1,400", fallback: "Georgia, serif" }
+Playfair Display:   { spec: "Playfair+Display:ital,wght@0,400;0,500;0,600;1,400", fallback: "Georgia, serif" }
+Lora:               { spec: "Lora:ital,wght@0,400;0,500;0,600;1,400", fallback: "Georgia, serif" }
+EB Garamond:        { spec: "EB+Garamond:ital,wght@0,400;0,500;0,600;1,400", fallback: "Georgia, serif" }
+Libre Baskerville:  { spec: "Libre+Baskerville:ital,wght@0,400;0,700;1,400", fallback: "Georgia, serif" }
+DM Serif Display:   { spec: "DM+Serif+Display:ital@0;1", fallback: "Georgia, serif" }
+Marcellus:          { spec: "Marcellus", fallback: "Georgia, serif" }
+Cinzel:             { spec: "Cinzel:wght@400;500;600", fallback: "Georgia, serif" }
+Jost:               { spec: "Jost:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Lato:               { spec: "Lato:ital,wght@0,300;0,400;0,700;1,300", fallback: "system-ui, sans-serif" }
+Raleway:            { spec: "Raleway:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Montserrat:         { spec: "Montserrat:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Poppins:            { spec: "Poppins:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Open Sans:          { spec: "Open+Sans:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Mulish:             { spec: "Mulish:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Nunito:             { spec: "Nunito:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Work Sans:          { spec: "Work+Sans:ital,wght@0,300;0,400;0,500;1,300", fallback: "system-ui, sans-serif" }
+Quicksand:          { spec: "Quicksand:wght@300;400;500", fallback: "system-ui, sans-serif" }
