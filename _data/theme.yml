@@ -1,4 +1,4 @@
-colour_theme: Dawn
+colour_theme: Lotus
 heading_font: Cormorant Garamond
 body_font: Jost
 text_size: Normal
@@ -7,15 +7,3 @@ photos:
   series: /images/sand-ripples.jpg
   contact: /images/beach-sunrise.jpg
   testimonials_page: /images/green-point-calm.jpg
-colours:
-  background: ""
-  background_soft: ""
-  text: ""
-  text_soft: ""
-  accent: ""
-  accent_light: ""
-  highlight: ""
-  dark: ""
-  hero_top: ""
-  hero_middle: ""
-  hero_bottom: ""
