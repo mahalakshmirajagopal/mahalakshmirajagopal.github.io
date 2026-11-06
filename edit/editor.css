@@ -38,6 +38,12 @@ a { color: var(--accent); }
 .connect-card ol { padding-left: 1.2rem; }
 .connect-card li { margin-bottom: 0.5rem; }
 .connect-card code { background: var(--bg); padding: 1px 5px; border-radius: 4px; }
+.login-form { display: flex; flex-direction: column; gap: 6px; margin-top: 20px; }
+.login-form label { font-weight: 600; font-size: 0.9rem; margin-top: 6px; }
+.login-form input { width: 100%; font: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: #fff; }
+.login-form .btn { margin-top: 12px; align-self: flex-start; padding: 9px 22px; }
+.key-setup { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 14px; }
+.key-setup summary { cursor: pointer; color: var(--soft); font-size: 0.9rem; }
 #connect-form { display: flex; gap: 8px; margin-top: 16px; }
 #connect-form input { flex: 1; min-width: 0; }
 

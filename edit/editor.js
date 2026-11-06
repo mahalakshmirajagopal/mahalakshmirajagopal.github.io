@@ -581,7 +581,48 @@
     $('loading').hidden = true;
     $('app').hidden = true;
     $('connect').hidden = false;
-    $('connect-error').textContent = msg || '';
+    $('login-error').textContent = msg || '';
+  }
+
+  // ---------- Signing in ----------
+  // login.json holds the GitHub key, locked with the email and password (PBKDF2 + AES-GCM).
+  // Without the right pair it cannot be unlocked, so the page itself can stay public.
+
+  function b64(bytes) { return btoa(String.fromCharCode.apply(null, new Uint8Array(bytes))); }
+  function unb64(s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }
+
+  function loginKey(email, password, salt, iterations) {
+    var secret = new TextEncoder().encode(email.trim().toLowerCase() + '\n' + password);
+    return crypto.subtle.importKey('raw', secret, 'PBKDF2', false, ['deriveKey']).then(function (base) {
+      return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: salt, iterations: iterations, hash: 'SHA-256' },
+        base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+    });
+  }
+
+  // Used once to make login.json: SiteLogin.lock(email, password, githubKey)
+  function lock(email, password, secret) {
+    var salt = crypto.getRandomValues(new Uint8Array(16));
+    var iv = crypto.getRandomValues(new Uint8Array(12));
+    var iterations = 600000;
+    return loginKey(email, password, salt, iterations).then(function (key) {
+      return crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, new TextEncoder().encode(secret));
+    }).then(function (data) {
+      return { iterations: iterations, salt: b64(salt), iv: b64(iv), data: b64(data) };
+    });
+  }
+  window.SiteLogin = { lock: lock };
+
+  function unlock(email, password) {
+    return fetch('login.json', { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('Sign-in is not set up yet.');
+      return r.json();
+    }).then(function (box) {
+      return loginKey(email, password, unb64(box.salt), box.iterations).then(function (key) {
+        return crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(box.iv) }, key, unb64(box.data));
+      }).then(function (plain) { return new TextDecoder().decode(plain); }, function () {
+        var e = new Error('wrong'); e.wrong = true; throw e;
+      });
+    });
   }
 
   function start() {
@@ -590,10 +631,31 @@
     if (!saved && /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]look\b/.test(location.search)) return load().then(renderPreview);
     if (!saved) return showConnect();
     connect(saved).then(load).then(renderPreview).catch(function (e) {
-      if (e.status === 401 || e.status === 403) { store(TOKEN_KEY, null); showConnect('That key no longer works. Please make a new one.'); }
+      if (e.status === 401 || e.status === 403) { store(TOKEN_KEY, null); showConnect('Please sign in again.'); }
       else { $('loading').textContent = 'Could not reach GitHub (' + e.message + '). Check the internet connection and reload the page.'; }
     });
   }
+
+  $('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var button = e.target.querySelector('button');
+    button.disabled = true;
+    $('login-error').textContent = 'Signing in…';
+    unlock($('login-email').value, $('login-password').value).then(function (t) {
+      return connect(t).then(function () {
+        store(TOKEN_KEY, t);
+        $('login-password').value = '';
+        $('login-error').textContent = '';
+        $('connect').hidden = true;
+        return load().then(renderPreview);
+      });
+    }).catch(function (err) {
+      token = null;
+      $('login-error').textContent = err.wrong ? 'That email or password is not right.'
+        : err.status === 401 || err.status === 403 ? 'Signing in worked, but GitHub no longer accepts the saved key. Use "Set up with a GitHub key" below.'
+        : err.message;
+    }).then(function () { button.disabled = false; });
+  });
 
   $('token-link').href = 'https://github.com/settings/personal-access-tokens/new?name=Website+editor&description=Editor+for+healingsanctuary.in&target_name=' + OWNER + '&expires_in=none&contents=write';
   $('connect-form').addEventListener('submit', function (e) {
@@ -624,7 +686,6 @@
     load().then(renderPreview);
   });
   $('signout').addEventListener('click', function () {
-    if (!confirm('Disconnect this computer? You will need to paste a GitHub key again to edit.')) return;
     store(TOKEN_KEY, null);
     location.reload();
   });

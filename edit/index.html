@@ -9,12 +9,23 @@
 </head>
 <body>
 
-  <!-- Shown until a GitHub key is saved in this browser -->
+  <!-- Shown until someone signs in on this browser -->
   <section id="connect" class="connect" hidden>
     <div class="connect-card">
       <h1>Website editor</h1>
       <p class="muted">healingsanctuary.in</p>
-      <p>To save changes to the website, this editor needs a key from your GitHub account. You only do this once on each computer.</p>
+      <form id="login-form" class="login-form">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" autocomplete="username" required>
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" autocomplete="current-password" required>
+        <button class="btn primary" type="submit">Sign in</button>
+      </form>
+      <p id="login-error" class="error" role="alert"></p>
+
+      <details class="key-setup">
+        <summary>Set up with a GitHub key instead</summary>
+      <p>Only needed if signing in stops working. This editor needs a key from your GitHub account.</p>
       <ol>
         <li>Open <a id="token-link" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub's new key page</a> (you need to be signed in to GitHub as mahalakshmirajagopal).</li>
         <li>Name it <b>Website editor</b> and set <b>Expiration</b> to <b>No expiration</b>.</li>
@@ -27,6 +38,7 @@
         <button class="btn primary" type="submit">Connect</button>
       </form>
       <p id="connect-error" class="error" role="alert"></p>
+      </details>
     </div>
   </section>
 
@@ -47,7 +59,7 @@
         <button id="menu" class="btn icon" type="button" aria-label="More">⋯</button>
         <div id="menu-pop" class="menu-pop" hidden>
           <button type="button" id="reload">Reload from the website</button>
-          <button type="button" id="signout">Disconnect this computer</button>
+          <button type="button" id="signout">Sign out</button>
         </div>
       </div>
     </header>
