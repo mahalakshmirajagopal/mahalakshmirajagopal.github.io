@@ -25,5 +25,13 @@
       --serif: "{{ hname }}", {{ hf.fallback }};
       --sans: "{{ bname }}", {{ bf.fallback }};
       --text-size: {{ size }};
+      {%- if th.photos.quote and th.photos.quote != "" %}
+      --photo-quote: url("{{ th.photos.quote | relative_url }}");{% endif %}
+      {%- if th.photos.series and th.photos.series != "" %}
+      --photo-series: url("{{ th.photos.series | relative_url }}");{% endif %}
+      {%- if th.photos.contact and th.photos.contact != "" %}
+      --photo-contact: url("{{ th.photos.contact | relative_url }}");{% endif %}
+      {%- if th.photos.testimonials_page and th.photos.testimonials_page != "" %}
+      --photo-testimonials: url("{{ th.photos.testimonials_page | relative_url }}");{% endif %}
     }
   </style>

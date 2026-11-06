@@ -6,7 +6,7 @@ media:
 
 content:
   - name: theme
-    label: Look and feel (colours, fonts, text size)
+    label: Look and feel (colours, fonts, background photos)
     type: file
     path: _data/theme.yml
     fields:
@@ -27,6 +27,14 @@ content:
         label: Text size
         type: select
         options: { values: [Smaller, Normal, Larger, Largest] }
+      - name: photos
+        label: Background photos
+        type: object
+        fields:
+          - { name: quote, label: Behind the quote near the top, type: image }
+          - { name: series, label: Behind the Self Healing Series, type: image }
+          - { name: contact, label: Behind the contact section, type: image }
+          - { name: testimonials_page, label: Top of the Testimonials page, type: image }
       - name: colours
         label: Your own colours (optional)
         description: Leave a box empty to use the colour from the theme above. Colours are written like #2d3047; you can pick one at htmlcolorcodes.com and copy its code.

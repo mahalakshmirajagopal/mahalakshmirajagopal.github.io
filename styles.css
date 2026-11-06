@@ -206,7 +206,7 @@ section { padding: 110px 0; }
 .band {
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--night) 42%, transparent) 0%, color-mix(in srgb, var(--night) 38%, transparent) 50%, color-mix(in srgb, var(--night) 30%, transparent) 100%),
-    url("images/beach-sunrise.jpg") center 22% / cover;
+    var(--photo-quote, url("images/beach-sunrise.jpg")) center 22% / cover;
   color: var(--ivory);
   text-align: center;
   padding: 150px 0;
@@ -379,7 +379,7 @@ section { padding: 110px 0; }
   background:
     radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--gold-soft) 28%, transparent) 0%, transparent 45%),
     linear-gradient(color-mix(in srgb, var(--night) 90%, transparent), color-mix(in srgb, var(--night) 90%, transparent)),
-    url("images/sand-ripples.jpg") center / cover;
+    var(--photo-series, url("images/sand-ripples.jpg")) center / cover;
   color: var(--ivory);
   border-radius: 28px;
   padding: 56px;
@@ -492,7 +492,7 @@ section { padding: 110px 0; }
 .contact {
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--night) 82%, transparent) 0%, color-mix(in srgb, var(--night) 50%, transparent) 55%, color-mix(in srgb, var(--night) 25%, transparent) 100%),
-    url("images/beach-sunrise.jpg") center 62% / cover;
+    var(--photo-contact, url("images/beach-sunrise.jpg")) center 62% / cover;
   padding: 140px 0 220px;
   color: var(--ivory);
   text-align: center;
@@ -523,7 +523,7 @@ section { padding: 110px 0; }
   color: var(--ivory);
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--night) 72%, transparent) 0%, color-mix(in srgb, var(--night) 45%, transparent) 55%, color-mix(in srgb, var(--night) 15%, transparent) 100%),
-    url("images/green-point-calm.jpg") center 55% / cover;
+    var(--photo-testimonials, url("images/green-point-calm.jpg")) center 55% / cover;
 }
 .t-hero .eyebrow { color: var(--gold-soft); }
 .t-hero h1 {

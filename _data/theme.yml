@@ -2,6 +2,11 @@ colour_theme: Dawn
 heading_font: Cormorant Garamond
 body_font: Jost
 text_size: Normal
+photos:
+  quote: /images/beach-sunrise.jpg
+  series: /images/sand-ripples.jpg
+  contact: /images/beach-sunrise.jpg
+  testimonials_page: /images/green-point-calm.jpg
 colours:
   background: ""
   background_soft: ""
