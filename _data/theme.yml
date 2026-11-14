@@ -7,3 +7,12 @@ photos:
   series: /images/sand-ripples.jpg
   contact: /images/beach-sunrise.jpg
   testimonials_page: /images/green-point-calm.jpg
+colours:
+  text: lavender
+  text_soft: light purple
+  accent: Bright violet
+  accent_light: Lavender
+  highlight: Dark
+  dark: Blue
+  hero_top: Blue
+  hero_middle: Blue
