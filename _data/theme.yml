@@ -15,7 +15,7 @@ colours:
   accent: mauve
   accent_light: Lavender
   highlight: light
-  dark: Blue
-  hero_top: Blue
-  hero_middle: Blue
-  hero_bottom: Purple
+  dark: mauve
+  hero_top: mauve
+  hero_middle: sky blue
+  hero_bottom: sky blue
