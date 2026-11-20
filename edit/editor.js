@@ -69,7 +69,13 @@
       body: opts.body ? JSON.stringify(opts.body) : undefined
     }).then(function (r) {
       if (r.status === 401) { store(SESSION_KEY, null); showSignin('Please sign in again.'); var e0 = new Error('signed out'); e0.status = 401; throw e0; }
-      if (!r.ok) { var err = new Error('the server replied ' + r.status); err.status = r.status; throw err; }
+      if (!r.ok) {
+        return r.json().catch(function () { return {}; }).then(function (b) {
+          var err = new Error(b.error === 'github-key' ? b.detail + ' Ask Harsh to set a new key.' : 'the server replied ' + r.status);
+          err.status = r.status;
+          throw err;
+        });
+      }
       return r.status === 204 ? null : r.json();
     });
   }
