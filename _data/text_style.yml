@@ -1,0 +1,58 @@
+# Fonts and text colours, edited by Mahalakshmi in Pages CMS (Fonts and text colours).
+heading_font: Cormorant Garamond
+body_font: Jost
+text_size: Normal
+site_name:
+  font: normal
+  colour: normal
+tagline:
+  font: normal
+  colour: normal
+menu:
+  font: normal
+  colour: normal
+big_heading:
+  font: normal
+  colour: normal
+big_heading_italic:
+  font: normal
+  colour: normal
+intro:
+  font: normal
+  colour: normal
+labels:
+  font: normal
+  colour: normal
+headings:
+  font: normal
+  colour: normal
+titles:
+  font: normal
+  colour: normal
+paragraphs:
+  font: normal
+  colour: normal
+buttons:
+  font: normal
+  colour: normal
+quote:
+  font: normal
+  colour: normal
+quote_name:
+  font: normal
+  colour: normal
+testimonials:
+  font: normal
+  colour: normal
+dark_headings:
+  font: normal
+  colour: normal
+dark_text:
+  font: normal
+  colour: normal
+footer:
+  font: normal
+  colour: normal
+links:
+  font: normal
+  colour: normal

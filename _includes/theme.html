@@ -1,27 +1,41 @@
-{%- comment -%} Fonts and colours from _data/theme.yml. A custom colour left empty falls back to the chosen ready-made theme. {%- endcomment -%}
+{%- comment -%}
+  Fonts and colours.
+  _data/theme.yml        colour theme, background colours, photos (Pages CMS: Look and feel)
+  _data/text_style.yml   main fonts, text size, and a font + colour for each kind of text (Pages CMS: Fonts and text colours)
+  _data/text_parts.yml   which part of the page each line of that form changes
+  A custom colour that is empty or not a #code falls back to the chosen ready-made theme.
+{%- endcomment -%}
 {%- assign th = site.data.theme -%}
+{%- assign ts = site.data.text_style -%}
 {%- assign p = site.data.themes[th.colour_theme] | default: site.data.themes.Dawn -%}
 {%- assign c = th.colours -%}
-{%- assign hf = site.data.fonts[th.heading_font] | default: site.data.fonts["Cormorant Garamond"] -%}
-{%- assign bf = site.data.fonts[th.body_font] | default: site.data.fonts.Jost -%}
-{%- assign hname = th.heading_font | default: "Cormorant Garamond" -%}
-{%- assign bname = th.body_font | default: "Jost" -%}
-{%- case th.text_size -%}{%- when "Smaller" -%}{%- assign size = "0.98rem" -%}{%- when "Larger" -%}{%- assign size = "1.15rem" -%}{%- when "Largest" -%}{%- assign size = "1.25rem" -%}{%- else -%}{%- assign size = "1.05rem" -%}{%- endcase -%}
-  <link href="https://fonts.googleapis.com/css2?family={{ hf.spec }}{% if bname != hname %}&family={{ bf.spec }}{% endif %}&display=swap" rel="stylesheet">
+{%- assign hname = ts.heading_font | default: th.heading_font | default: "Cormorant Garamond" -%}
+{%- assign bname = ts.body_font | default: th.body_font | default: "Jost" -%}
+{%- unless site.data.fonts[hname] -%}{%- assign hname = "Cormorant Garamond" -%}{%- endunless -%}
+{%- unless site.data.fonts[bname] -%}{%- assign bname = "Jost" -%}{%- endunless -%}
+{%- assign hf = site.data.fonts[hname] -%}
+{%- assign bf = site.data.fonts[bname] -%}
+{%- assign tsize = ts.text_size | default: th.text_size -%}
+{%- case tsize -%}{%- when "Smaller" -%}{%- assign size = "0.98rem" -%}{%- when "Larger" -%}{%- assign size = "1.15rem" -%}{%- when "Largest" -%}{%- assign size = "1.25rem" -%}{%- else -%}{%- assign size = "1.05rem" -%}{%- endcase -%}
+{%- comment -%} every font in use, once each {%- endcomment -%}
+{%- assign used = hname | append: "|" | append: bname -%}
+{%- for part in site.data.text_parts -%}
+  {%- assign f = ts[part.key].font -%}
+  {%- if f and site.data.fonts[f] -%}{%- assign used = used | append: "|" | append: f -%}{%- endif -%}
+{%- endfor -%}
+{%- assign used = used | split: "|" | uniq -%}
+  <link href="https://fonts.googleapis.com/css2?{% for f in used %}{% unless forloop.first %}&{% endunless %}family={{ site.data.fonts[f].spec }}{% endfor %}&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     :root {
-      --ivory: {{ c.background | default: p.background }};
-      --sand: {{ c.background_soft | default: p.background_soft }};
-      --ink: {{ c.text | default: p.text }};
-      --ink-soft: {{ c.text_soft | default: p.text_soft }};
-      --gold: {{ c.accent | default: p.accent }};
-      --gold-soft: {{ c.accent_light | default: p.accent_light }};
-      --rose: {{ c.highlight | default: p.highlight }};
-      --night: {{ c.dark | default: p.dark }};
-      --hero-top: {{ c.hero_top | default: p.hero_top }};
-      --hero-middle: {{ c.hero_middle | default: p.hero_middle }};
-      --hero-bottom: {{ c.hero_bottom | default: p.hero_bottom }};
+      {%- assign keys = "background,background_soft,text,text_soft,accent,accent_light,highlight,dark,hero_top,hero_middle,hero_bottom" | split: "," -%}
+      {%- assign vars = "ivory,sand,ink,ink-soft,gold,gold-soft,rose,night,hero-top,hero-middle,hero-bottom" | split: "," -%}
+      {%- for k in keys %}
+      {%- assign v = c[k] | append: "" | strip -%}
+      {%- assign first = v | slice: 0 -%}
+      {%- unless first == "#" and v.size == 7 -%}{%- assign v = p[k] -%}{%- endunless %}
+      --{{ vars[forloop.index0] }}: {{ v }};
+      {%- endfor %}
       --serif: "{{ hname }}", {{ hf.fallback }};
       --sans: "{{ bname }}", {{ bf.fallback }};
       --text-size: {{ size }};
@@ -34,4 +48,15 @@
       {%- if th.photos.testimonials_page and th.photos.testimonials_page != "" %}
       --photo-testimonials: url("{{ th.photos.testimonials_page | relative_url }}");{% endif %}
     }
+    {%- for part in site.data.text_parts %}
+    {%- assign choice = ts[part.key] -%}
+    {%- assign f = choice.font -%}
+    {%- if f and site.data.fonts[f] %}
+    {{ part.font }} { font-family: "{{ f }}", {{ site.data.fonts[f].fallback }} !important; }
+    {%- endif -%}
+    {%- assign col = site.data.colour_names[choice.colour] -%}
+    {%- if col %}
+    {{ part.colour }} { color: {{ col }} !important; }
+    {%- endif -%}
+    {%- endfor %}
   </style>

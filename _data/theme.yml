@@ -1,21 +1,21 @@
-colour_theme: Lavender
-heading_font: Playfair Display
-body_font: Open Sans
-text_size: Larger
+colour_theme: Dawn
+heading_font: Cormorant Garamond
+body_font: Jost
+text_size: Normal
 photos:
   quote: /images/beach-sunrise.jpg
   series: /images/sand-ripples.jpg
   contact: /images/beach-sunrise.jpg
   testimonials_page: /images/green-point-calm.jpg
 colours:
-  background: "  cream"
-  background_soft: Mauve
-  text: lavender
-  text_soft: light purple
-  accent: mauve
-  accent_light: Lavender
-  highlight: purple
-  dark: mauve
-  hero_top: mauve
-  hero_middle: sky blue
-  hero_bottom: sky blue
+  background: ""
+  background_soft: ""
+  text: ""
+  text_soft: ""
+  accent: ""
+  accent_light: ""
+  highlight: ""
+  dark: ""
+  hero_top: ""
+  hero_middle: ""
+  hero_bottom: ""

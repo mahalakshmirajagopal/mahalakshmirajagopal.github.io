@@ -1,0 +1,19 @@
+# Which part of the page each line of the 'Fonts and text colours' form changes. Not edited by Mahalakshmi.
+- { key: site_name, font: ".brand-name", colour: ".brand-name" }
+- { key: tagline, font: ".brand-sub", colour: ".brand-sub" }
+- { key: menu, font: ".nav-links a:not(.btn)", colour: ".nav-links a:not(.btn)" }
+- { key: big_heading, font: ".hero h1", colour: ".hero h1" }
+- { key: big_heading_italic, font: ".hero h1 em, .t-hero h1 em", colour: ".hero h1 em" }
+- { key: intro, font: ".lede", colour: ".lede" }
+- { key: labels, font: ".eyebrow", colour: ":is(.eyebrow):not(:is(.band, .series, .contact, .t-hero, .t-share, .site-header, footer) *)" }
+- { key: headings, font: "h2", colour: ":is(h2):not(:is(.band, .series, .contact, .t-hero, .t-share, .site-header, footer) *)" }
+- { key: titles, font: "h3, h4, .facts strong", colour: ":is(h3, h4, .facts strong):not(:is(.band, .series, .contact, .t-hero, .t-share, .site-header, footer) *)" }
+- { key: paragraphs, font: ":is(p, li, figcaption, .facts span):not(:is(.site-header, footer) *)", colour: ":is(p, li, figcaption, .facts span):not(:is(.band, .series, .contact, .t-hero, .t-share, .site-header, footer) *)" }
+- { key: buttons, font: ".btn", colour: ".btn" }
+- { key: quote, font: ".band blockquote", colour: ".band blockquote" }
+- { key: quote_name, font: ".band cite", colour: ".band cite" }
+- { key: testimonials, font: ".t-card blockquote, .t-featured blockquote", colour: ".t-card blockquote, .t-featured blockquote" }
+- { key: dark_headings, font: ".series h3, .contact h2, .t-share h2, .t-hero h1", colour: ".series h3, .contact h2, .t-share h2, .t-hero h1" }
+- { key: dark_text, font: ":is(.series, .contact, .t-share, .t-hero) :is(p, li, h4, .eyebrow)", colour: ":is(.series, .contact, .t-share, .t-hero) :is(p, li, h4, .eyebrow, .contact-details a)" }
+- { key: footer, font: "footer", colour: "footer, footer p" }
+- { key: links, font: "footer a, .crosslink a", colour: "footer a, .crosslink a" }
