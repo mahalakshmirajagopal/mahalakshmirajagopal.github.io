@@ -17,28 +17,28 @@
   <header class="site-header">
     <nav class="wrap nav" aria-label="Main">
       <a href="{% if home == "" %}#top{% else %}index.html{% endif %}" class="brand">
-        <span class="brand-name">{{ d.site.name | escape }}</span>
-        <span class="brand-sub">{{ d.site.tagline | escape }}</span>
+        <span class="brand-name">{% include t.html text=d.site.name %}</span>
+        <span class="brand-sub">{% include t.html text=d.site.tagline %}</span>
       </a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
         {%- if d.about.show %}
-        <li><a href="{{ home }}#about">{{ d.about.menu | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#about">{% include t.html text=d.about.menu %}</a></li>{% endif %}
         {%- if d.sessions.show %}
-        <li><a href="{{ home }}#sessions">{{ d.sessions.menu | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#sessions">{% include t.html text=d.sessions.menu %}</a></li>{% endif %}
         {%- if d.workshops.show %}
-        <li><a href="{{ home }}#workshops">{{ d.workshops.menu | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#workshops">{% include t.html text=d.workshops.menu %}</a></li>{% endif %}
         {%- if d.meditation.show %}
-        <li><a href="{{ home }}#meditation">{{ d.meditation.menu | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#meditation">{% include t.html text=d.meditation.menu %}</a></li>{% endif %}
         {%- if d.videos.show %}
-        <li><a href="{{ home }}#videos">{{ d.videos.menu | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#videos">{% include t.html text=d.videos.menu %}</a></li>{% endif %}
         {%- if d.testimonials.show %}
-        <li><a href="{{ home }}#testimonials"{% if home != "" %} aria-current="page"{% endif %}>{{ d.testimonials.menu | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#testimonials"{% if home != "" %} aria-current="page"{% endif %}>{% include t.html text=d.testimonials.menu %}</a></li>{% endif %}
         {%- if d.contact.show %}
-        <li><a href="{{ home }}#contact">{{ d.contact.menu | escape }}</a></li>
-        <li><a href="{{ home }}#contact" class="btn btn-primary">{{ d.site.book_button | escape }}</a></li>{% endif %}
+        <li><a href="{{ home }}#contact">{% include t.html text=d.contact.menu %}</a></li>
+        <li><a href="{{ home }}#contact" class="btn btn-primary">{% include t.html text=d.site.book_button %}</a></li>{% endif %}
       </ul>
     </nav>
   </header>
@@ -49,8 +49,8 @@
 
   <footer>
     <div class="wrap footer-grid">
-      <p class="disclaimer">{{ d.site.disclaimer | escape }}</p>
-      <p>© <span id="year">2026</span> {{ d.site.full_name | escape }}{% if home == "" %}{% if d.testimonials.show %} · <a href="testimonials.html">{{ d.testimonials.menu | escape }}</a>{% endif %}{% else %} · <a href="index.html">Home</a>{% endif %}{% if d.site.counselling_site and d.site.counselling_site != "" %} · <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">Counselling practice</a>{% endif %}</p>
+      <p class="disclaimer">{% include t.html text=d.site.disclaimer %}</p>
+      <p>© <span id="year">2026</span> {% include t.html text=d.site.full_name %}{% if home == "" %}{% if d.testimonials.show %} · <a href="testimonials.html">{% include t.html text=d.testimonials.menu %}</a>{% endif %}{% else %} · <a href="index.html">Home</a>{% endif %}{% if d.site.counselling_site and d.site.counselling_site != "" %} · <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">Counselling practice</a>{% endif %}</p>
     </div>
   </footer>
 

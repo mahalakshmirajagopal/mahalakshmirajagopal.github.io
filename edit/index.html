@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Website Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css?v=3">
+</head>
+<body>
+
+  <!-- Sign in -->
+  <section id="signin" class="signin" hidden>
+    <form id="login-form" class="signin-card" autocomplete="on">
+      <h1>Website editor</h1>
+      <p class="muted">healingsanctuary.in</p>
+      <label for="login-email">Email</label>
+      <input id="login-email" type="email" autocomplete="username" required>
+      <label for="login-password">Password</label>
+      <input id="login-password" type="password" autocomplete="current-password" required>
+      <button class="btn primary big" type="submit">Sign in</button>
+      <p id="login-error" class="error" role="alert"></p>
+    </form>
+  </section>
+
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="title">
+        <strong>Website editor</strong>
+        <a href="https://healingsanctuary.in" target="_blank" rel="noopener" class="muted">See the live website ↗</a>
+      </div>
+      <div class="mobile-tabs" role="tablist">
+        <button type="button" data-view="page" class="on">Page</button>
+        <button type="button" data-view="panel">Fonts, photos…</button>
+      </div>
+      <div class="actions">
+        <span id="status" class="status" aria-live="polite"></span>
+        <button id="discard" class="btn" type="button" disabled>Undo my changes</button>
+        <button id="publish" class="btn primary" type="button" disabled>Publish</button>
+        <button id="menu" class="btn icon" type="button" aria-label="More">⋯</button>
+        <div id="menu-pop" class="menu-pop" hidden>
+          <button type="button" id="undo2">Undo my changes</button>
+          <button type="button" id="reload">Load the latest website</button>
+          <button type="button" id="signout">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="preview-pane">
+      <div class="preview-bar">
+        <p class="hint-pill">✎ Click words to change them · select words to colour them</p>
+        <div class="bar-right">
+          <div class="seg" id="page-switch">
+            <button type="button" data-page="index.html" class="on">Main page</button>
+            <button type="button" data-page="testimonials.html">Testimonials page</button>
+          </div>
+          <div class="seg" id="device-switch">
+            <button type="button" data-device="desktop" class="on">Computer</button>
+            <button type="button" data-device="phone">Phone</button>
+          </div>
+        </div>
+      </div>
+      <div id="stage" class="stage">
+        <iframe id="preview" title="Your website, ready to edit"></iframe>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="tabs" role="tablist">
+        <button type="button" data-tab="look" class="on">Fonts &amp; colours</button>
+        <button type="button" data-tab="sections">Sections &amp; photos</button>
+      </div>
+      <div id="tab-look" class="tab-body"></div>
+      <div id="tab-sections" class="tab-body" hidden>
+        <div id="section-list" class="section-list"></div>
+        <div id="section-form" hidden>
+          <button type="button" id="back" class="btn small">← All sections</button>
+          <h2 id="section-title"></h2>
+          <form id="form" autocomplete="off" onsubmit="return false"></form>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div id="loading" class="loading">Loading the website…</div>
+
+  <div id="picker" class="picker" hidden>
+    <div class="picker-card">
+      <div class="picker-head">
+        <strong>Choose a photo</strong>
+        <button type="button" class="btn icon" id="picker-close" aria-label="Close">×</button>
+      </div>
+      <div id="picker-grid" class="picker-grid"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/liquidjs@10.19.0/dist/liquid.browser.min.js"></script>
+  <script src="render.js?v=3"></script>
+  <script src="editor.js?v=3"></script>
+</body>
+</html>

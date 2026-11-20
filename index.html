@@ -9,12 +9,12 @@ layout: default
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <span class="eyebrow">{{ d.top.title_line | escape }}</span>
-          <h1>{{ d.top.heading | escape }} <em>{{ d.top.heading_highlight | escape }}</em></h1>
-          <p class="lede">{{ d.top.intro | escape }}</p>
+          <span class="eyebrow">{% include t.html text=d.top.title_line %}</span>
+          <h1>{% include t.html text=d.top.heading %} <em>{% include t.html text=d.top.heading_highlight %}</em></h1>
+          <p class="lede">{% include t.html text=d.top.intro %}</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">{{ d.top.button_main | escape }}</a>
-            <a href="#workshops" class="btn btn-ghost">{{ d.top.button_second | escape }}</a>
+            <a href="#contact" class="btn btn-primary">{% include t.html text=d.top.button_main %}</a>
+            <a href="#workshops" class="btn btn-ghost">{% include t.html text=d.top.button_second %}</a>
           </div>
         </div>
 
@@ -58,8 +58,8 @@ layout: default
           <i style="background:var(--c-root)"></i><i style="background:var(--c-sacral)"></i><i style="background:var(--c-solar)"></i><i style="background:var(--c-heart)"></i><i style="background:var(--c-throat)"></i><i style="background:var(--c-brow)"></i><i style="background:var(--c-crown)"></i>
         </div>
         <blockquote class="reveal">
-          “{{ d.top.quote | escape }}”
-          <cite>{{ d.site.full_name | escape }}</cite>
+          “{% include t.html text=d.top.quote %}”
+          <cite>{% include t.html text=d.site.full_name %}</cite>
         </blockquote>
       </div>
     </div>
@@ -71,21 +71,21 @@ layout: default
       <div class="wrap">
         <div class="about-grid">
           <div class="about-text reveal">
-            <span class="eyebrow">{{ d.about.label | escape }}</span>
-            <h2>{{ d.about.heading | escape }}</h2>
+            <span class="eyebrow">{% include t.html text=d.about.label %}</span>
+            <h2>{% include t.html text=d.about.heading %}</h2>
             {%- for p in d.about.paragraphs %}
-            <p>{{ p | escape }}</p>
+            <p>{% include t.html text=p %}</p>
             {%- endfor %}
             {%- if d.about.counselling_text and d.about.counselling_text != "" %}
-            <p class="crosslink">{{ d.about.counselling_text | escape }} <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">{{ d.about.counselling_link_text | escape }}</a>.</p>
+            <p class="crosslink">{% include t.html text=d.about.counselling_text %} <a href="{{ d.site.counselling_site }}" target="_blank" rel="noopener">{% include t.html text=d.about.counselling_link_text %}</a>.</p>
             {%- endif %}
           </div>
 
           <div class="about-side">
-          <figure class="photo reveal"><img src="{{ d.about.photo | relative_url }}" alt="{{ d.about.photo_description | escape }}" loading="lazy"></figure>
+          <figure class="photo reveal"><img src="{{ d.about.photo | relative_url }}" alt="{% include t.html text=d.about.photo_description plain=true %}" loading="lazy"></figure>
           <ul class="facts reveal">
             {%- for f in d.about.facts %}
-            <li><strong>{{ f.title | escape }}</strong><span>{{ f.text | escape }}</span></li>
+            <li><strong>{% include t.html text=f.title %}</strong><span>{% include t.html text=f.text %}</span></li>
             {%- endfor %}
           </ul>
           </div>
@@ -95,8 +95,8 @@ layout: default
           {%- for p in d.about.pillars %}
           <div class="pillar">
             <div class="dot" style="background:var(--c-{{ colours[forloop.index0] | default: 'heart' }})"></div>
-            <h3>{{ p.title | escape }}</h3>
-            <p>{{ p.text | escape }}</p>
+            <h3>{% include t.html text=p.title %}</h3>
+            <p>{% include t.html text=p.text %}</p>
           </div>
           {%- endfor %}
         </div>
@@ -111,19 +111,19 @@ layout: default
       <div class="wrap">
         <div class="section-head with-photo reveal">
           <div>
-            <span class="eyebrow">{{ d.sessions.label | escape }}</span>
-            <h2>{{ d.sessions.heading | escape }}</h2>
-            <p class="lede">{{ d.sessions.intro | escape }}</p>
+            <span class="eyebrow">{% include t.html text=d.sessions.label %}</span>
+            <h2>{% include t.html text=d.sessions.heading %}</h2>
+            <p class="lede">{% include t.html text=d.sessions.intro %}</p>
           </div>
-          <figure class="photo"><img src="{{ d.sessions.photo | relative_url }}" alt="{{ d.sessions.photo_description | escape }}" loading="lazy"></figure>
+          <figure class="photo"><img src="{{ d.sessions.photo | relative_url }}" alt="{% include t.html text=d.sessions.photo_description plain=true %}" loading="lazy"></figure>
         </div>
 
         <div class="cards">
           {%- for s in d.sessions.sessions %}
           <article class="card{% if s.wide %} wide{% endif %} reveal">
-            <span class="tag">{{ s.tag | escape }}</span>
-            <h3>{{ s.title | escape }}</h3>
-            <p>{{ s.text | escape }}</p>
+            <span class="tag">{% include t.html text=s.tag %}</span>
+            <h3>{% include t.html text=s.title %}</h3>
+            <p>{% include t.html text=s.text %}</p>
             {% include card-meta.html item=s %}
           </article>
           {%- endfor %}
@@ -132,8 +132,8 @@ layout: default
         <div class="process">
           {%- for s in d.sessions.steps %}
           <div class="step reveal">
-            <h4>{{ s.title | escape }}</h4>
-            <p>{{ s.text | escape }}</p>
+            <h4>{% include t.html text=s.title %}</h4>
+            <p>{% include t.html text=s.text %}</p>
           </div>
           {%- endfor %}
         </div>
@@ -148,26 +148,26 @@ layout: default
       <div class="wrap">
         <div class="section-head with-photo reveal">
           <div>
-            <span class="eyebrow">{{ d.workshops.label | escape }}</span>
-            <h2>{{ d.workshops.heading | escape }}</h2>
-            <p class="lede">{{ d.workshops.intro | escape }}</p>
+            <span class="eyebrow">{% include t.html text=d.workshops.label %}</span>
+            <h2>{% include t.html text=d.workshops.heading %}</h2>
+            <p class="lede">{% include t.html text=d.workshops.intro %}</p>
           </div>
-          <figure class="photo"><img src="{{ d.workshops.photo | relative_url }}" alt="{{ d.workshops.photo_description | escape }}" loading="lazy"></figure>
+          <figure class="photo"><img src="{{ d.workshops.photo | relative_url }}" alt="{% include t.html text=d.workshops.photo_description plain=true %}" loading="lazy"></figure>
         </div>
 
         <div class="series reveal">
           <div class="series-intro">
-            <span class="eyebrow">{{ d.workshops.series.label | escape }}</span>
-            <h3>{{ d.workshops.series.title | escape }}</h3>
-            <p>{{ d.workshops.series.text | escape }}</p>
+            <span class="eyebrow">{% include t.html text=d.workshops.series.label %}</span>
+            <h3>{% include t.html text=d.workshops.series.title %}</h3>
+            <p>{% include t.html text=d.workshops.series.text %}</p>
           </div>
           <ol class="modules">
             {%- for m in d.workshops.series.modules %}
             <li>
               <span class="num">{{ numerals[forloop.index0] }}</span>
               <div>
-                <h4>{{ m.title | escape }}</h4>
-                <p>{{ m.text | escape }}</p>
+                <h4>{% include t.html text=m.title %}</h4>
+                <p>{% include t.html text=m.text %}</p>
               </div>
             </li>
             {%- endfor %}
@@ -177,15 +177,15 @@ layout: default
         <div class="workshop-grid">
           {%- for w in d.workshops.workshops %}
           <article class="card reveal">
-            <span class="tag">{{ w.tag | escape }}</span>
-            <h3>{{ w.title | escape }}</h3>
-            <p>{{ w.text | escape }}</p>
+            <span class="tag">{% include t.html text=w.tag %}</span>
+            <h3>{% include t.html text=w.title %}</h3>
+            <p>{% include t.html text=w.text %}</p>
             {% include card-meta.html item=w %}
           </article>
           {%- endfor %}
         </div>
 
-        <p class="note reveal">{{ d.workshops.note | escape }}</p>
+        <p class="note reveal">{% include t.html text=d.workshops.note %}</p>
       </div>
     </section>
 
@@ -196,17 +196,17 @@ layout: default
     <section id="meditation" class="meditation">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">{{ d.meditation.label | escape }}</span>
-          <h2>{{ d.meditation.heading | escape }}</h2>
-          <p class="lede">{{ d.meditation.intro | escape }}</p>
+          <span class="eyebrow">{% include t.html text=d.meditation.label %}</span>
+          <h2>{% include t.html text=d.meditation.heading %}</h2>
+          <p class="lede">{% include t.html text=d.meditation.intro %}</p>
         </div>
 
         <div class="meditation-grid">
           {%- for m in d.meditation.offerings %}
           <article class="card reveal">
-            <span class="tag">{{ m.tag | escape }}</span>
-            <h3>{{ m.title | escape }}</h3>
-            <p>{{ m.text | escape }}</p>
+            <span class="tag">{% include t.html text=m.tag %}</span>
+            <h3>{% include t.html text=m.title %}</h3>
+            <p>{% include t.html text=m.text %}</p>
             {% include card-meta.html item=m %}
           </article>
           {%- endfor %}
@@ -221,9 +221,9 @@ layout: default
     <section id="videos" class="videos">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">{{ d.videos.label | escape }}</span>
-          <h2>{{ d.videos.heading | escape }}</h2>
-          <p class="lede">{{ d.videos.intro | escape }}</p>
+          <span class="eyebrow">{% include t.html text=d.videos.label %}</span>
+          <h2>{% include t.html text=d.videos.heading %}</h2>
+          <p class="lede">{% include t.html text=d.videos.intro %}</p>
         </div>
         <div class="video-grid">
           {%- for v in d.videos.videos %}
@@ -232,14 +232,14 @@ layout: default
         </div>
 
         {%- if d.videos.talks.size > 0 %}
-        <h3 class="sub-head reveal">{{ d.videos.talks_heading | escape }}</h3>
+        <h3 class="sub-head reveal">{% include t.html text=d.videos.talks_heading %}</h3>
         <div class="video-grid">
           {%- for v in d.videos.talks %}
           {% include video.html video=v %}
           {%- endfor %}
         </div>
         {%- endif %}
-        <p class="channel-link reveal"><a class="btn btn-ghost" href="{{ d.site.youtube_channel }}" target="_blank" rel="noopener">{{ d.videos.channel_button | escape }}</a></p>
+        <p class="channel-link reveal"><a class="btn btn-ghost" href="{{ d.site.youtube_channel }}" target="_blank" rel="noopener">{% include t.html text=d.videos.channel_button %}</a></p>
       </div>
     </section>
 
@@ -251,22 +251,22 @@ layout: default
       <div class="wrap">
         <div class="section-head with-photo reveal">
           <div>
-            <span class="eyebrow">{{ d.testimonials.label | escape }}</span>
-            <h2>{{ d.testimonials.heading | escape }}</h2>
+            <span class="eyebrow">{% include t.html text=d.testimonials.label %}</span>
+            <h2>{% include t.html text=d.testimonials.heading %}</h2>
             <div class="t-summary-row">{% include google-summary.html %}</div>
           </div>
-          <figure class="photo"><img src="{{ d.testimonials.photo | relative_url }}" alt="{{ d.testimonials.photo_description | escape }}" loading="lazy"></figure>
+          <figure class="photo"><img src="{{ d.testimonials.photo | relative_url }}" alt="{% include t.html text=d.testimonials.photo_description plain=true %}" loading="lazy"></figure>
         </div>
         <div class="t-row">
           {%- for r in d.testimonials.reviews %}{% if r.on_main_page %}
           <figure class="t-card reveal">
             {% include google-badge.html %}
-            <blockquote>“{{ r.text | escape }}”</blockquote>
-            <figcaption><strong>{{ r.name | escape }}</strong><span>{{ r.about | escape }}</span></figcaption>
+            <blockquote>“{% include t.html text=r.text %}”</blockquote>
+            <figcaption><strong>{% include t.html text=r.name %}</strong><span>{% include t.html text=r.about %}</span></figcaption>
           </figure>
           {%- endif %}{% endfor %}
         </div>
-        <p class="channel-link reveal"><a class="btn btn-ghost" href="testimonials.html">{{ d.testimonials.more_button | escape }}</a></p>
+        <p class="channel-link reveal"><a class="btn btn-ghost" href="testimonials.html">{% include t.html text=d.testimonials.more_button %}</a></p>
       </div>
     </section>
 
@@ -276,12 +276,12 @@ layout: default
     {%- if d.contact.show %}
     <section id="contact" class="contact">
       <div class="wrap">
-        <span class="eyebrow" style="color:var(--gold-soft)">{{ d.contact.label | escape }}</span>
-        <h2>{{ d.contact.heading | escape }}</h2>
-        <p class="lede">{{ d.contact.intro | escape }}</p>
+        <span class="eyebrow" style="color:var(--gold-soft)">{% include t.html text=d.contact.label %}</span>
+        <h2>{% include t.html text=d.contact.heading %}</h2>
+        <p class="lede">{% include t.html text=d.contact.intro %}</p>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/{{ d.site.whatsapp | remove: '+' | remove: ' ' }}?text={{ d.contact.whatsapp_message | url_encode | replace: '+', '%20' }}" target="_blank" rel="noopener">{{ d.contact.whatsapp_button | escape }}</a>
-          <a class="btn btn-ghost" href="mailto:{{ d.site.email }}?subject={{ d.contact.email_subject | url_encode | replace: '+', '%20' }}">{{ d.contact.email_button | escape }}</a>
+          <a class="btn btn-gold" href="https://wa.me/{{ d.site.whatsapp | remove: '+' | remove: ' ' }}?text={{ d.contact.whatsapp_message | url_encode | replace: '+', '%20' }}" target="_blank" rel="noopener">{% include t.html text=d.contact.whatsapp_button %}</a>
+          <a class="btn btn-ghost" href="mailto:{{ d.site.email }}?subject={{ d.contact.email_subject | url_encode | replace: '+', '%20' }}">{% include t.html text=d.contact.email_button %}</a>
         </div>
         <div class="contact-details">
           <a href="tel:{{ d.site.phone | remove: ' ' }}">{{ d.site.phone }}</a>

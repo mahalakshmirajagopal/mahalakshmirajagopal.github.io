@@ -1,0 +1,8 @@
+{%- comment -%} Prints one piece of text. Words wrapped in [colour=name]...[/colour] (added in the website editor) get that colour; the names are in _data/colour_names.yml. Unknown names keep the normal colour. plain=true drops the colours (for text inside attributes). {%- endcomment -%}
+{%- assign t_s = include.text | escape -%}
+{%- if t_s contains "[colour=" -%}
+{%- assign t_parts = t_s | split: "[colour=" -%}
+{%- capture t_out -%}{{ t_parts[0] }}{%- for part in t_parts offset: 1 -%}{%- assign t_name = part | split: "]" | first -%}{%- assign t_rest = part | remove_first: t_name | remove_first: "]" -%}{%- assign t_col = site.data.colour_names[t_name] -%}{%- unless include.plain -%}{%- if t_col -%}<span style="color:{{ t_col }}">{%- else -%}<span>{%- endif -%}{%- endunless -%}{{ t_rest }}{%- endfor -%}{%- endcapture -%}
+{%- if include.plain -%}{%- assign t_s = t_out | remove: "[/colour]" -%}{%- else -%}{%- assign t_s = t_out | replace: "[/colour]", "</span>" -%}{%- endif -%}
+{%- endif -%}
+{{- t_s -}}

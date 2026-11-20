@@ -7,9 +7,9 @@ description: What clients and workshop participants say about healing sessions a
 
     <section class="t-hero">
       <div class="wrap">
-        <span class="eyebrow">{{ t.label | escape }}</span>
-        <h1>{{ t.page_heading | escape }}<br><em>{{ t.page_heading_highlight | escape }}</em></h1>
-        <p class="lede">{{ t.page_intro | escape }}</p>
+        <span class="eyebrow">{% include t.html text=t.label %}</span>
+        <h1>{% include t.html text=t.page_heading %}<br><em>{% include t.html text=t.page_heading_highlight %}</em></h1>
+        <p class="lede">{% include t.html text=t.page_intro %}</p>
       </div>
     </section>
 
@@ -22,8 +22,8 @@ description: What clients and workshop participants say about healing sessions a
           <div class="chakra-line" aria-hidden="true">
             <i style="background:var(--c-root)"></i><i style="background:var(--c-sacral)"></i><i style="background:var(--c-solar)"></i><i style="background:var(--c-heart)"></i><i style="background:var(--c-throat)"></i><i style="background:var(--c-brow)"></i><i style="background:var(--c-crown)"></i>
           </div>
-          <blockquote>“{{ r.text | escape }}”</blockquote>
-          <figcaption><strong>{{ r.name | escape }}</strong><span>{{ r.about | escape }}</span>{% include google-badge.html %}</figcaption>
+          <blockquote>“{% include t.html text=r.text %}”</blockquote>
+          <figcaption><strong>{% include t.html text=r.name %}</strong><span>{% include t.html text=r.about %}</span>{% include google-badge.html %}</figcaption>
         </figure>
         {%- endif %}{% endfor %}
 
@@ -31,8 +31,8 @@ description: What clients and workshop participants say about healing sessions a
           {%- for r in t.reviews %}{% unless r.featured %}
           <figure class="t-card reveal">
             {% include google-badge.html %}
-            <blockquote>“{{ r.text | escape }}”</blockquote>
-            <figcaption><strong>{{ r.name | escape }}</strong><span>{{ r.about | escape }}</span></figcaption>
+            <blockquote>“{% include t.html text=r.text %}”</blockquote>
+            <figcaption><strong>{% include t.html text=r.name %}</strong><span>{% include t.html text=r.about %}</span></figcaption>
           </figure>
           {%- endunless %}{% endfor %}
         </div>
@@ -41,12 +41,12 @@ description: What clients and workshop participants say about healing sessions a
 
     <section class="t-share">
       <div class="wrap">
-        <span class="eyebrow" style="color:var(--gold-soft)">{{ t.share_label | escape }}</span>
-        <h2>{{ t.share_heading | escape }}</h2>
-        <p class="lede">{{ t.share_text | escape }}</p>
+        <span class="eyebrow" style="color:var(--gold-soft)">{% include t.html text=t.share_label %}</span>
+        <h2>{% include t.html text=t.share_heading %}</h2>
+        <p class="lede">{% include t.html text=t.share_text %}</p>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/{{ site.data.site.whatsapp | remove: '+' | remove: ' ' }}?text={{ t.share_whatsapp_message | url_encode | replace: '+', '%20' }}" target="_blank" rel="noopener">{{ t.share_whatsapp_button | escape }}</a>
-          <a class="btn btn-ghost" href="{{ t.google_link }}" target="_blank" rel="noopener">{{ t.share_google_button | escape }}</a>
+          <a class="btn btn-gold" href="https://wa.me/{{ site.data.site.whatsapp | remove: '+' | remove: ' ' }}?text={{ t.share_whatsapp_message | url_encode | replace: '+', '%20' }}" target="_blank" rel="noopener">{% include t.html text=t.share_whatsapp_button %}</a>
+          <a class="btn btn-ghost" href="{{ t.google_link }}" target="_blank" rel="noopener">{% include t.html text=t.share_google_button %}</a>
         </div>
       </div>
     </section>
