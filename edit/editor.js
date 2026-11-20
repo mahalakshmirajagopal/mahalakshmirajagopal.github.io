@@ -71,7 +71,7 @@
       if (r.status === 401) { store(SESSION_KEY, null); showSignin('Please sign in again.'); var e0 = new Error('signed out'); e0.status = 401; throw e0; }
       if (!r.ok) {
         return r.json().catch(function () { return {}; }).then(function (b) {
-          var err = new Error(b.error === 'github-key' ? b.detail + ' Ask Harsh to set a new key.' : 'the server replied ' + r.status);
+          var err = new Error(b.error === 'github-key' ? b.detail + ' Ask Harsh to set a new key, then reload this page.' : 'the server replied ' + r.status);
           err.status = r.status;
           throw err;
         });
@@ -980,7 +980,7 @@
       if (!r.ok) throw new Error('the server replied ' + r.status);
       return load().then(renderPreview);
     }).catch(function (e) {
-      $('loading').textContent = 'Could not open the editor (' + e.message + '). Check the internet connection and reload the page.';
+      $('loading').textContent = /GitHub/.test(e.message) ? e.message : 'Could not open the editor (' + e.message + '). Check the internet connection and reload the page.';
     });
   }
 
