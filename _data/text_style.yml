@@ -1,6 +1,5 @@
-# Fonts and text colours, edited by Mahalakshmi in Pages CMS (Fonts and text colours).
-heading_font: Cormorant Garamond
-body_font: Jost
+heading_font: Jost
+body_font: Playfair Display
 text_size: Normal
 site_name:
   font: normal
